@@ -18,8 +18,8 @@ set autochdir
 set signcolumn=yes
 
 " Show Line Number settings
-set number norelativenumber     "Setting absolute line numbers
-"set number relativenumber	    "Setting relative line numbers
+"set number norelativenumber    "Setting absolute line numbers
+set number relativenumber	    "Setting relative line numbers
 
 " Show line under cursor
 set cursorline
