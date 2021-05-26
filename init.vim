@@ -2,6 +2,9 @@
 "                          Neovim Config File von Awesome
 " ==========================================================================================
 
+" Syntax Highlighting
+syntax on
+
 " Search Path
 set path+=**
 
