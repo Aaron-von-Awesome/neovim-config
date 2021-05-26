@@ -43,3 +43,13 @@ set undofile
 
 " Scrolling Options
 set scrolloff=10                "Start scolling the screen up or down when the cursor is 10 rows from the top or bottom
+
+" ----------------------------------------------------------
+"                  Custom Key Bindings
+" ----------------------------------------------------------
+
+" Navigate between windows easier
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>
