@@ -65,3 +65,18 @@ map <leader>l :wincmd l<CR>
 " Move lines or blocks of lines at once
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+" -----------------------------------------------------------
+"                  Magical Auto Commands
+" -----------------------------------------------------------
+
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+augroup VON_AWESOME
+    autocmd!
+    autocmd BufWritePre * :call TrimWhitespace()
+augroup END
