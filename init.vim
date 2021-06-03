@@ -72,6 +72,9 @@ vnoremap K :m '<-2<CR>gv=gv
 " Shortcut for :noh
 nnoremap <leader>nh :noh<CR>
 
+" Open tree view for current file directory
+nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 35<CR>
+
 " -----------------------------------------------------------
 "                  Magical Auto Commands
 " -----------------------------------------------------------
