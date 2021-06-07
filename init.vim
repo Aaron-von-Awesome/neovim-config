@@ -5,9 +5,6 @@
 " Syntax Highlighting
 syntax on
 
-" Source config file that is in the local directory
-set exrc
-
 " Search Path
 set path+=**
 
