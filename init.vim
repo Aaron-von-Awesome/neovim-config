@@ -15,9 +15,10 @@ set path+=**
 let mapleader = " "
 
 " Browse Window Properties
-let g:netrw_browse_split = 2
+let g:netrw_preview = 1
 let g:netrw_banner = 0
-let g:netrw_winsize = 25
+let g:netrw_liststyle = 0
+let g:netrw_browse_split = 4
 
 " Buffer Settings
 set hidden
