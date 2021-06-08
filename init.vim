@@ -63,10 +63,11 @@ set splitbelow                  "Put horizontally split new windows below
 " ----------------------------------------------------------
 
 " Navigate between windows easier
-map <leader>h :wincmd h<CR>
-map <leader>j :wincmd j<CR>
-map <leader>k :wincmd k<CR>
-map <leader>l :wincmd l<CR>
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader><tab> <c-^>
 
 " Move lines or blocks of lines at once
 vnoremap J :m '>+1<CR>gv=gv
