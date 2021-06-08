@@ -43,6 +43,7 @@ set smartindent
 " set nohlsearch
 set ignorecase
 set smartcase                   "If your search has an upper case character in it, then search will be case sensitive, else case insensitive
+set inccommand=nosplit          "Show substitutions incrementally
 
 " File History Settings
 set noswapfile
@@ -51,10 +52,11 @@ set undodir=~/.vim/undodir
 set undofile
 
 " Scrolling Options
-set scrolloff=10                "Start scolling the screen up or down when the cursor is 10 rows from the top or bottom
+set scrolloff=10                "Start scrolling the screen up or down when the cursor is 10 rows from the top or bottom
 
-" Show substitutions incrementally
-set inccommand=nosplit
+" Window Options
+set splitbelow                  "Put horizontally split new windows below
+
 
 " ----------------------------------------------------------
 "                  Custom Key Bindings
