@@ -53,6 +53,9 @@ set undofile
 " Scrolling Options
 set scrolloff=10                "Start scolling the screen up or down when the cursor is 10 rows from the top or bottom
 
+" Show substitutions incrementally
+set inccommand=nosplit
+
 " ----------------------------------------------------------
 "                  Custom Key Bindings
 " ----------------------------------------------------------
