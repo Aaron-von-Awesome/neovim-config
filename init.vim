@@ -79,6 +79,7 @@ nnoremap <leader>nh :noh<CR>
 
 " Open tree view for current file directory
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 35<CR>
+nnoremap <leader>uv :wincmd s<bar> :Ex <bar> :vertical resize 50<CR>
 
 " -----------------------------------------------------------
 "                  Magical Auto Commands
