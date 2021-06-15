@@ -89,6 +89,22 @@ tnoremap <A-[> <Esc>
 
 
 " -----------------------------------------------------------
+"                        Status Bar
+" -----------------------------------------------------------
+" Left Side
+set statusline=
+set statusline+=\ %M
+set statusline+=\ %y
+set statusline+=\ %r
+set statusline+=\ %F
+" Right side
+set statusline+=%=
+set statusline+=\ %c:%l/%L
+set statusline+=\ %p%%
+set statusline+=\ [%n]
+
+
+" -----------------------------------------------------------
 "                  Magical Auto Commands
 " -----------------------------------------------------------
 
