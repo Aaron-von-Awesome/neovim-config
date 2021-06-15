@@ -87,6 +87,9 @@ tnoremap <Esc> <C-\><C-n>
 " Still need to be able to send <Esc> whilst using Terminal
 tnoremap <A-[> <Esc>
 
+" I keep typing Q
+nnoremap Q <nop>
+
 
 " -----------------------------------------------------------
 "                        Status Bar
