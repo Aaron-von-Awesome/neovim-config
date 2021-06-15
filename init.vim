@@ -90,6 +90,10 @@ tnoremap <A-[> <Esc>
 " I keep typing Q
 nnoremap Q <nop>
 
+" Generate Graphviz custom key binding (TODO: How do I detect a dot file, and
+" only allow this to run against a dot file?)
+nnoremap <leader>ggv :!dot -T png % -o %:r.png<CR>
+nnoremap <leader>vgv :!display %:r.png<CR>
 
 " -----------------------------------------------------------
 "                        Status Bar
