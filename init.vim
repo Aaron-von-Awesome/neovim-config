@@ -78,8 +78,8 @@ vnoremap K :m '<-2<CR>gv=gv
 nnoremap <leader>nh :noh<CR>
 
 " Open tree view for current file directory
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 35<CR>
-nnoremap <leader>uv :wincmd s<bar> :Ex <bar> :resize 25<CR>
+nnoremap <leader>pv :wincmd v<bar> Ex <bar> vertical resize 35<CR>
+nnoremap <leader>uv :wincmd s<bar> Ex <bar> resize 25<CR>
 
 " Return to Normal mode whilst in Insert mode using the Terminal
 tnoremap <Esc> <C-\><C-n>
