@@ -1,0 +1,3 @@
+[submodule "site/pack/autoload/start/undotree"]
+	path = site/pack/autoload/start/undotree
+	url = https://github.com/mbbill/undotree.git
