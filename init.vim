@@ -105,6 +105,12 @@ nnoremap <leader>Y gg"+yG
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 
+" Window Controls
+nnoremap <S-Up> :vert resize +4<CR>
+nnoremap <S-Down> :vert resize -4<CR>
+nnoremap <C-Up> :resize -4<CR>
+nnoremap <C-Down> :resize +4<CR>
+
 
 " -----------------------------------------------------------
 "                        Status Bar
