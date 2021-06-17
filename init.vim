@@ -95,6 +95,11 @@ nnoremap Q <nop>
 nnoremap <leader>ggv :!dot -T png % -o %:r.png<CR>
 nnoremap <leader>vgv :!display %:r.png<CR>
 
+" Copy to system clipboard
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y gg"+yG
+
 " -----------------------------------------------------------
 "                        Status Bar
 " -----------------------------------------------------------
