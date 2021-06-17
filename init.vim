@@ -10,7 +10,7 @@ set path+=**
 
 " Set Leader Key
 let mapleader = " "
-nnoremap <silent> <space> <nop>
+nnoremap <space> <nop>
 
 " Browse Window Properties
 let g:netrw_preview = 1
