@@ -63,6 +63,9 @@ set splitbelow                  "Put horizontally split new windows below
 "                  Custom Key Bindings
 " ----------------------------------------------------------
 
+" Quick reload of init.vim file
+nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
+
 " Navigate between windows easier
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
