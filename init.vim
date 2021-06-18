@@ -108,8 +108,8 @@ vnoremap <leader>p "+p
 " Window Controls
 nnoremap <A-Up> :vert resize +4<CR>
 nnoremap <A-Down> :vert resize -4<CR>
-nnoremap <C-Up> :resize -4<CR>
-nnoremap <C-Down> :resize +4<CR>
+nnoremap <C-Up> :resize +4<CR>
+nnoremap <C-Down> :resize -4<CR>
 
 
 " -----------------------------------------------------------
