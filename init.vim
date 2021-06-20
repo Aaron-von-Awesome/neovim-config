@@ -22,7 +22,7 @@ let g:netrw_browse_split = 4
 set hidden
 
 " Automatically change to the directory of the open file
-set autochdir
+" set autochdir
 
 " Sign Column Settings
 set signcolumn=yes
