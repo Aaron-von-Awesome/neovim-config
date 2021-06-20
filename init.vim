@@ -33,14 +33,14 @@ set signcolumn=yes
 
 " Show Line Number settings
 "set number norelativenumber    "Setting absolute line numbers
-set number relativenumber	    "Setting relative line numbers
+set number relativenumber	      "Setting relative line numbers
 
 " Show line under cursor
 set cursorline
 
 " Tab Options
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set expandtab
 set smartindent
 
