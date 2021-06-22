@@ -115,6 +115,17 @@ nnoremap <A-Down> :vert resize -4<CR>
 nnoremap <C-Up> :resize +4<CR>
 nnoremap <C-Down> :resize -4<CR>
 
+" Spell Check
+nnoremap <leader>ss :set spell<CR>
+nnoremap <leader>sns :set nospell<CR>
+" Find next spelling mistake
+nnoremap <leader>sl ]s
+" Find previous spelling mistake
+nnoremap <leader>sh [s
+" z= - Replace misspelled word
+" zg - Good word: Add the word under the cursor to the dictionary
+" zw - Woops! Undo and remove the word from the dictionary
+
 
 " -----------------------------------------------------------
 "                        Status Bar
