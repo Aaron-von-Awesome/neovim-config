@@ -16,7 +16,7 @@ nnoremap <space> <nop>
 let g:netrw_preview = 1
 let g:netrw_banner = 0
 let g:netrw_liststyle = 0
-let g:netrw_browse_split = 0
+let g:netrw_browse_split = 4
 
 " netrw Tweak until the fix for the bug at adds a phantom <space> to
 " the minus (-) key gets merged up stream: https://stackoverflow.com/a/58409216
