@@ -126,6 +126,10 @@ nnoremap <leader>sh [s
 " zg - Good word: Add the word under the cursor to the dictionary
 " zw - Woops! Undo and remove the word from the dictionary
 
+" Word Wrap
+nnoremap <leader>snw :set nowrap<CR>
+nnoremap <leader>sw :set wrap<CR>
+
 
 " -----------------------------------------------------------
 "                        Status Bar
