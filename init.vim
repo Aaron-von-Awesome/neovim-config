@@ -100,7 +100,7 @@ nnoremap Q <nop>
 " Generate Graphviz custom key binding (TODO: How do I detect a dot file, and
 " only allow this to run against a dot file?)
 nnoremap <leader>ggv :!dot -T png % -o %:r.png<CR>
-nnoremap <leader>vgv :!display %:r.png<CR>
+nnoremap <leader>vgv :!display %:r.png &<CR>
 
 " Copy & Paste to/from system clipboard
 nnoremap <leader>y "+y
