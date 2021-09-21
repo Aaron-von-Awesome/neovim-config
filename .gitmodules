@@ -1,3 +1,6 @@
 [submodule "site/pack/autoload/start/undotree"]
 	path = site/pack/autoload/start/undotree
 	url = https://github.com/mbbill/undotree.git
+[submodule "site/pack/autoload/start/vim-polyglot"]
+	path = site/pack/autoload/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
