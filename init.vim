@@ -127,6 +127,7 @@ nnoremap <leader>sh [s
 " zw - Woops! Undo and remove the word from the dictionary
 
 " Word Wrap
+set nowrap
 nnoremap <leader>snw :set nowrap<CR>
 nnoremap <leader>sw :set wrap<CR>
 
