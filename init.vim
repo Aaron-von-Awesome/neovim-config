@@ -131,6 +131,9 @@ set nowrap
 nnoremap <leader>snw :set nowrap<CR>
 nnoremap <leader>sw :set wrap<CR>
 
+" Quickfix List Navigation
+nnoremap <C-j> :cnext<CR>
+nnoremap <C-k> :cprev<CR>
 
 " -----------------------------------------------------------
 "                        Status Bar
