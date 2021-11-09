@@ -7,3 +7,6 @@
 [submodule "colorschemes/ayu-vim"]
 	path = colorschemes/ayu-vim
 	url = https://github.com/ayu-theme/ayu-vim.git
+[submodule "colorschemes/vim-code-dark"]
+	path = colorschemes/vim-code-dark
+	url = https://github.com/tomasiser/vim-code-dark.git

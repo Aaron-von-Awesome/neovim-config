@@ -6,8 +6,8 @@
 "                   Colors/Color Schemes
 " -----------------------------------------------------------
 set termguicolors
-let ayucolor="dark"
-colorscheme ayu
+let g:codedark_conservative = 1
+colorscheme codedark
 
 
 " Syntax Highlighting
