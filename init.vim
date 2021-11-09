@@ -2,6 +2,14 @@
 "                          Neovim Config File von Awesome
 " ==========================================================================================
 
+" -----------------------------------------------------------
+"                   Colors/Color Schemes
+" -----------------------------------------------------------
+set termguicolors
+let ayucolor="dark"
+colorscheme ayu
+
+
 " Syntax Highlighting
 syntax on
 

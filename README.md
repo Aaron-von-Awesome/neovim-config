@@ -12,3 +12,6 @@ My Neovim configuration settings.
 
 ### Site Folder Location
 `~/.local/share/nvim`
+
+### Colorschemes Folder Location
+Clone the repository into `colorschemes`, and then find the `colors` folder and symbolic link the `.vim` file inside the `~/.config/nvim/colors`
