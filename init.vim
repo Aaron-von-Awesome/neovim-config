@@ -16,6 +16,9 @@ syntax on
 " Search Path
 set path+=**
 
+" Ignore tags file in searches like vimgrep
+set wildignore+=tags
+
 " Set Leader Key
 let mapleader = " "
 nnoremap <space> <nop>
