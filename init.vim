@@ -120,6 +120,13 @@ nnoremap <leader>Y gg"+yG
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 
+" Copy relative path
+nnoremap <leader>cf :let @+=expand("%")<CR>
+
+" Copy absolute path
+nnoremap <leader>cF :let @+=expand("%:p")<CR>
+
+
 " Window Controls
 nnoremap <A-Up> :vert resize +4<CR>
 nnoremap <A-Down> :vert resize -4<CR>
