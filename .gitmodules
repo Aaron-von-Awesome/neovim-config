@@ -13,3 +13,6 @@
 [submodule "site/pack/autoload/start/vim-find-files"]
 	path = site/pack/autoload/start/vim-find-files
 	url = https://github.com/samoshkin/vim-find-files.git
+[submodule "site/pack/autoload/start/vim-markdown-composer"]
+	path = site/pack/autoload/start/vim-markdown-composer
+	url = https://github.com/euclio/vim-markdown-composer
