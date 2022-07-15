@@ -25,3 +25,6 @@
 [submodule "site/pack/autoload/start/nvim-web-devicons"]
 	path = site/pack/autoload/start/nvim-web-devicons
 	url = https://github.com/kyazdani42/nvim-web-devicons.git
+[submodule "site/pack/autoload/start/nvim-lspconfig"]
+	path = site/pack/autoload/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
