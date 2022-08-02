@@ -9,6 +9,8 @@ set termguicolors
 let g:codedark_conservative = 1
 colorscheme codedark
 
+" Set indent character for indent-blankline.nvim plugin
+let g:indent_blankline_char = "⦙"
 
 " Syntax Highlighting
 syntax on

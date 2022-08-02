@@ -28,3 +28,6 @@
 [submodule "site/pack/autoload/start/nvim-lspconfig"]
 	path = site/pack/autoload/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "site/pack/autoload/start/indent-blankline.nvim"]
+	path = site/pack/autoload/start/indent-blankline.nvim
+	url = https://github.com/lukas-reineke/indent-blankline.nvim
