@@ -35,7 +35,7 @@ vim.opt.syntax = true
 vim.opt.path = vim.opt.path + '**'
 
 -- Ignore tags file in searches like vimgrep
-set wildignore+=tags
+vim.opt.wildignore = vim.opt.wildignore + 'tags'
 
 -- Colors/Color Schemes
 vim.opt.termguicolors = true
