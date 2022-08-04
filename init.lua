@@ -40,7 +40,7 @@ vim.opt.wildignore = vim.opt.wildignore + 'tags'
 -- Colors/Color Schemes
 vim.opt.termguicolors = true
 vim.g.codedark_conservative = 1
-vim.opt.colorscheme = 'codedark'
+vim.g.colorscheme = 'codedark'
 
 -- Set indent character for indent-blankline.nvim plugin
 vim.g.indent_blankline_char = '⦙'
