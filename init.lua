@@ -29,7 +29,7 @@ vim.g.mapleader = ' '
 vim.api.nvim_set_keymap( 'n', '<space>', '<nop>', {noremap = true})
 
 -- Syntax Highlighting
-vim.opt.syntax = true
+vim.opt.syntax = 'on'
 
 -- Search Path
 vim.opt.path = vim.opt.path + '**'
