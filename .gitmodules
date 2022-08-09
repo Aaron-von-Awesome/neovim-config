@@ -31,3 +31,18 @@
 [submodule "site/pack/autoload/start/indent-blankline.nvim"]
 	path = site/pack/autoload/start/indent-blankline.nvim
 	url = https://github.com/lukas-reineke/indent-blankline.nvim
+[submodule "site/pack/autoload/start/mason-lspconfig.nvim"]
+	path = site/pack/autoload/start/mason-lspconfig.nvim
+	url = https://github.com/williamboman/mason-lspconfig.nvim.git
+[submodule "site/pack/autoload/start/nvim-dap"]
+	path = site/pack/autoload/start/nvim-dap
+	url = https://github.com/mfussenegger/nvim-dap.git
+[submodule "site/pack/autoload/start/nvim-lint"]
+	path = site/pack/autoload/start/nvim-lint
+	url = https://github.com/mfussenegger/nvim-lint.git
+[submodule "site/pack/autoload/start/formatter.nvim"]
+	path = site/pack/autoload/start/formatter.nvim
+	url = https://github.com/mhartington/formatter.nvim.git
+[submodule "site/pack/autoload/start/mason.nvim"]
+	path = site/pack/autoload/start/mason.nvim
+	url = https://github.com/williamboman/mason.nvim.git
