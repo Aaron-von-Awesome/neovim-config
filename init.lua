@@ -137,6 +137,9 @@ vim.api.nvim_set_keymap('n', '<leader><tab>', '<c-^>', {noremap = true})
 vim.api.nvim_set_keymap('v', 'J', ':m \'>+1<CR>gv=gv', {noremap = true})
 vim.api.nvim_set_keymap('v', 'K', ':m \'<-2<CR>gv=gv', {noremap = true})
 
+-- Shortcut for :noh
+vim.api.nvim_set_keymap('n', '<leader>nh', ':noh<CR>', {noremap = true})
+
 -- Open tree view for current file directory
 vim.api.nvim_set_keymap('n', '<leader>tv', ':wincmd v<bar> Ex <bar> vertical resize 35<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>th', ':wincmd s<bar> Ex <bar> resize 25<CR>', {noremap = true})
