@@ -166,6 +166,13 @@ autocmd({ "BufWritePost" }, {
   end,
 })
 
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source lua/nvim/plugins.lua | PackerCompile
+  augroup end
+]])
+
 
 -- -----------------------------------------------------------
 --                      General Settings
