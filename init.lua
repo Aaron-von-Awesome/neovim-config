@@ -57,10 +57,6 @@ require("mason-lspconfig").setup({
   automatic_installation = true
 })
 
-require("lint").linters_by_ft = {
-  yaml = { "yamllint", }
-}
-
 
 -- -----------------------------------------------------------
 --                LSP Mappings and Settings
