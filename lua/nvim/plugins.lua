@@ -14,6 +14,7 @@ return require("packer").startup(function(use)
   -- Packer can manage itself
   use "wbthomason/packer.nvim"
 
+  -- Plugins
   use {
     "mbbill/undotree",
     "sheerun/vim-polyglot",
@@ -29,6 +30,9 @@ return require("packer").startup(function(use)
     "mhartington/formatter.nvim",
     "williamboman/mason.nvim"
   }
+
+  -- Color Schemes
+  use "tomasiser/vim-code-dark"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
