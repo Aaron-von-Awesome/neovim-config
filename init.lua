@@ -53,7 +53,8 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-  ensure_installed = { "ansiblels@0.5.0", "yamlls", "sumneko_lua", "dotls", "pyright", "gopls", "tsserver", "html" },
+  ensure_installed = { "ansiblels@0.5.0", "yamlls", "sumneko_lua", "dotls", "pyright", "gopls", "tsserver", "html",
+    "dockerls" },
   automatic_installation = true
 })
 
@@ -133,6 +134,10 @@ require("lspconfig").tsserver.setup({
 })
 
 require("lspconfig").html.setup({
+  on_attach = on_attach,
+})
+
+require("lspconfig").dockerls.setup({
   on_attach = on_attach,
 })
 
