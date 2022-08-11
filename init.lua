@@ -53,7 +53,7 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-  ensure_installed = { "ansiblels@0.5.0", "yamlls", "sumneko_lua", "dotls" },
+  ensure_installed = { "ansiblels@0.5.0", "yamlls", "sumneko_lua", "dotls", "pyright", "gopls", "tsserver", "html" },
   automatic_installation = true
 })
 
@@ -117,6 +117,22 @@ require("lspconfig").sumneko_lua.setup({
 })
 
 require("lspconfig").dotls.setup({
+  on_attach = on_attach,
+})
+
+require("lspconfig").pyright.setup({
+  on_attach = on_attach,
+})
+
+require("lspconfig").gopls.setup({
+  on_attach = on_attach,
+})
+
+require("lspconfig").tsserver.setup({
+  on_attach = on_attach,
+})
+
+require("lspconfig").html.setup({
   on_attach = on_attach,
 })
 
