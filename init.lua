@@ -326,6 +326,9 @@ vim.keymap.set("n", "<leader>sw", ":lua vim.opt.wrap = true<CR>", { noremap = tr
 vim.keymap.set("n", "<C-j>", ":cnext<CR>", { noremap = true })
 vim.keymap.set("n", "<C-k>", ":cprev<CR>", { noremap = true })
 
+-- Generate ctags
+vim.keymap.set("n", "<leader>gct", ":!ctags -R *<CR>", { noremap = true })
+
 -- -----------------------------------------------------------
 --                        Status Bar
 -- -----------------------------------------------------------
