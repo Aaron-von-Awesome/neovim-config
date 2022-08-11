@@ -1,48 +1,6 @@
-[submodule "site/pack/autoload/start/undotree"]
-	path = site/pack/autoload/start/undotree
-	url = https://github.com/mbbill/undotree.git
-[submodule "site/pack/autoload/start/vim-polyglot"]
-	path = site/pack/autoload/start/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot.git
 [submodule "colorschemes/ayu-vim"]
 	path = colorschemes/ayu-vim
 	url = https://github.com/ayu-theme/ayu-vim.git
 [submodule "colorschemes/vim-code-dark"]
 	path = colorschemes/vim-code-dark
 	url = https://github.com/tomasiser/vim-code-dark.git
-[submodule "site/pack/autoload/start/vim-markdown-composer"]
-	path = site/pack/autoload/start/vim-markdown-composer
-	url = https://github.com/euclio/vim-markdown-composer
-[submodule "site/pack/autoload/start/plenary.nvim"]
-	path = site/pack/autoload/start/plenary.nvim
-	url = https://github.com/nvim-lua/plenary.nvim.git
-[submodule "site/pack/autoload/start/telescope.nvim"]
-	path = site/pack/autoload/start/telescope.nvim
-	url = https://github.com/nvim-telescope/telescope.nvim.git
-[submodule "site/pack/autoload/start/nvim-treesitter"]
-	path = site/pack/autoload/start/nvim-treesitter
-	url = https://github.com/nvim-treesitter/nvim-treesitter.git
-[submodule "site/pack/autoload/start/nvim-web-devicons"]
-	path = site/pack/autoload/start/nvim-web-devicons
-	url = https://github.com/kyazdani42/nvim-web-devicons.git
-[submodule "site/pack/autoload/start/nvim-lspconfig"]
-	path = site/pack/autoload/start/nvim-lspconfig
-	url = https://github.com/neovim/nvim-lspconfig.git
-[submodule "site/pack/autoload/start/indent-blankline.nvim"]
-	path = site/pack/autoload/start/indent-blankline.nvim
-	url = https://github.com/lukas-reineke/indent-blankline.nvim
-[submodule "site/pack/autoload/start/mason-lspconfig.nvim"]
-	path = site/pack/autoload/start/mason-lspconfig.nvim
-	url = https://github.com/williamboman/mason-lspconfig.nvim.git
-[submodule "site/pack/autoload/start/nvim-dap"]
-	path = site/pack/autoload/start/nvim-dap
-	url = https://github.com/mfussenegger/nvim-dap.git
-[submodule "site/pack/autoload/start/nvim-lint"]
-	path = site/pack/autoload/start/nvim-lint
-	url = https://github.com/mfussenegger/nvim-lint.git
-[submodule "site/pack/autoload/start/formatter.nvim"]
-	path = site/pack/autoload/start/formatter.nvim
-	url = https://github.com/mhartington/formatter.nvim.git
-[submodule "site/pack/autoload/start/mason.nvim"]
-	path = site/pack/autoload/start/mason.nvim
-	url = https://github.com/williamboman/mason.nvim.git
