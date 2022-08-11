@@ -266,7 +266,7 @@ vim.keymap.set("n", "<leader>ggv", ":w<CR>:!dot -T png % -o %:r.png<CR>", { nore
 vim.keymap.set("n", "<leader>vgv", ":!display %:r.png &<CR>", { noremap = true })
 
 -- Copy & Paste to/from system clipboard
-vim.keymap.set("n", "<leader>y", "\"+y", { noremap = true })
+vim.keymap.set("n", "<leader>y", "\"+yy", { noremap = true })
 vim.keymap.set("v", "<leader>y", "\"+y", { noremap = true })
 vim.keymap.set("n", "<leader>Y", "gg\"+yG", { noremap = true })
 vim.keymap.set("n", "<leader>p", "\"+p", { noremap = true })
