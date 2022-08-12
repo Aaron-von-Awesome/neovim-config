@@ -1,5 +1,5 @@
 -- ======================================================================
---                   Treesitter Configuration
+--                   Nvim Treesitter Plugin Configuration
 -- ======================================================================
 
 require("nvim-treesitter.configs").setup {

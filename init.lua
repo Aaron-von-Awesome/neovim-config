@@ -3,243 +3,34 @@
 -- ==========================================================================================
 
 -- Install Plugins
-require("nvim.plugins")
+require("nvim/plugins")
 
 -- Treesitter
 --   https://github.com/nvim-treesitter/nvim-treesitter
-require("config.treesitter")
+require("config/treesitter")
 
 -- Mason - LSP servers, DAP servers, linters, and formatters
 --   https://github.com/williamboman/mason.nvim
 --   https://github.com/williamboman/mason-lspconfig.nvim
-require("config.mason")
+require("config/mason")
 
 -- LSP Servers
-require("config.lsp")
+require("config/lsp")
 
--- -----------------------------------------------------------
---                  Magical Auto Commands
--- -----------------------------------------------------------
+-- Autocommands
+require("nvim/autocommands")
 
-local augroup = vim.api.nvim_create_augroup
-VonAwesomeGroup = augroup('VonAwesome', {})
+-- Customize Neovim
+require("user/settings")
 
-local autocmd = vim.api.nvim_create_autocmd
+-- Custom Key Mappings
+require("user/keymaps")
 
--- Trim white space
-autocmd({ "BufWritePre" }, {
-  group = VonAwesomeGroup,
-  pattern = "*",
-  command = "%s/\\s\\+$//e",
-})
+-- Customize Neovim Status Bar
+require("nvim/status_bar")
 
-autocmd({ "BufWritePost" }, {
-  callback = function()
-    require("lint").try_lint()
-  end,
-})
+-- Markdown Composer Configuration
+require("config/markdown_composer")
 
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source lua/nvim/plugins.lua | PackerCompile
-  augroup end
-]])
-
-
--- -----------------------------------------------------------
---                      General Settings
--- -----------------------------------------------------------
-
--- Set Leader Key
-vim.g.mapleader = " "
-vim.keymap.set("n", "<space>", "<nop>", { noremap = true })
-
--- Syntax Highlighting
-vim.opt.syntax = "on"
-
--- Search Path
-vim.opt.path = vim.opt.path + "**"
-
--- Ignore tags file in searches like vimgrep
-vim.opt.wildignore = vim.opt.wildignore + "tags"
-
--- Colors/Color Schemes
-vim.opt.termguicolors = true
-vim.g.codedark_conservative = 1
-vim.cmd [[colorscheme codedark]]
-
--- Set indent character for indent-blankline.nvim plugin
-vim.g.indent_blankline_char = "⦙"
-
--- File Browsing Window properties
-vim.g.netrw_preview = 1
-vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 0
-vim.g.netrw_browse_split = 4
-
--- Buffer Settings
-vim.opt.hidden = true
-
--- Sign Column Settings
-vim.opt.signcolumn = "yes"
-
--- Line Number Settings
-vim.opt.relativenumber = true
-
--- Show line under cursor
-vim.opt.cursorline = true
-
--- Tab Options
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-
--- Search Options
---vim.opt.nohlsearch = true
-vim.opt.ignorecase = true
-
---If your search has an upper case character in it,
---then search will be case sensitive, else case insensitive
-vim.opt.smartcase = true
-
---Show substitutions incrementally
-vim.opt.inccommand = "nosplit"
-
--- File History Settings
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
-
--- Scrolling Options
---Start scrolling the screen up or down when the cursor is 10 rows from the top or bottom
-vim.opt.scrolloff = 10
-
--- Window Options
---Put horizontally split new windows below
-vim.opt.splitbelow = true
-
--- Folding
---vim.opt.foldmethod = "expr"
---vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-
-
--- ----------------------------------------------------------
---                  Custom Key Bindings
--- ----------------------------------------------------------
--- vim.keymap.set("<mode>", "<keys>", "<actions>", {<options>})
-
--- Quick reload of init.lua
-vim.keymap.set("n", "<leader><CR>",
-  ":execute 'lua vim.lsp.stop_client(vim.lsp.get_active_clients())' | luafile ~/.config/nvim/init.lua<CR>",
-  { noremap = true })
-
--- Navigate between windows easier
-vim.keymap.set("n", "<leader>h", ":wincmd h<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>j", ":wincmd j<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>k", ":wincmd k<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>l", ":wincmd l<CR>", { noremap = true })
-vim.keymap.set("n", "<leader><tab>", "<c-^>", { noremap = true })
-
--- Move lines of blocks of lines at once
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
-
--- Shortcut for :noh
-vim.keymap.set("n", "<leader>nh", ":noh<CR>", { noremap = true })
-
--- Open tree view for current file directory
-vim.keymap.set("n", "<leader>tv", ":wincmd v<bar> Ex <bar> vertical resize 45<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>th", ":wincmd s<bar> Ex <bar> resize 20<CR>", { noremap = true })
-
--- Return to Normal mode whilst in Insert mode using the Terminal
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
-
--- Still need to be able to send <Esc> whilst using Terminal
-vim.keymap.set("t", "<A-[>", "<Esc>", { noremap = true })
-
--- I keep typing Q
-vim.keymap.set("n", "Q", "<nop>", { noremap = true })
-
--- Generate Graphviz custom key binding (TODO: How do I detect a dot file, and
--- only allow this to run against a dot file?)
-vim.keymap.set("n", "<leader>ggv", ":w<CR>:!dot -T png % -o %:r.png<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>vgv", ":!display %:r.png &<CR>", { noremap = true })
-
--- Copy & Paste to/from system clipboard
-vim.keymap.set("n", "<leader>y", "\"+yy", { noremap = true })
-vim.keymap.set("v", "<leader>y", "\"+y", { noremap = true })
-vim.keymap.set("n", "<leader>Y", "gg\"+yG", { noremap = true })
-vim.keymap.set("n", "<leader>p", "\"+p", { noremap = true })
-vim.keymap.set("v", "<leader>p", "\"+p", { noremap = true })
-
--- Copy relative path
-vim.keymap.set("n", "<leader>cf", ":let @+=expand(\"%\")<CR>", { noremap = true })
-
--- Copy absolute path
-vim.keymap.set("n", "<leader>cF", ":let @+=expand(\"%:p\")<CR>", { noremap = true })
-
--- Window Controls
-vim.keymap.set("n", "<A-Up>", ":lua vim.cmd[[vert resize +5]]<CR>", { noremap = true })
-vim.keymap.set("n", "<A-Down>", ":lua vim.cmd[[vert resize -5]]<CR>", { noremap = true })
-vim.keymap.set("n", "<C-Up>", ":lua vim.cmd[[resize +5]]<CR>", { noremap = true })
-vim.keymap.set("n", "<C-Down>", ":lua vim.cmd[[resize -5]]<CR>", { noremap = true })
-
--- Spell Check
-vim.keymap.set("n", "<leader>ss", ":lua vim.opt.spell = true<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>sns", ":lua vim.opt.spell = false<CR>", { noremap = true })
-
--- Find next spelling mistake
-vim.keymap.set("n", "<leader>sl", "]s", { noremap = true })
--- Find previous spelling mistake
-vim.keymap.set("n", "<leader>sh", "[s", { noremap = true })
--- z= - Replace misspelled word
--- zg - Good word: Add the word under the cursor to the dictionary
--- zw - Woops! Undo and remove the word from the dictionary
-
--- Word Wrap
-vim.opt.wrap = false
-vim.keymap.set("n", "<leader>snw", ":lua vim.opt.wrap = false<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>sw", ":lua vim.opt.wrap = true<CR>", { noremap = true })
-
--- Quickfix List Navigation
-vim.keymap.set("n", "<C-j>", ":cnext<CR>", { noremap = true })
-vim.keymap.set("n", "<C-k>", ":cprev<CR>", { noremap = true })
-
--- Generate ctags
-vim.keymap.set("n", "<leader>gct", ":!ctags -R *<CR>", { noremap = true })
-
--- -----------------------------------------------------------
---                        Status Bar
--- -----------------------------------------------------------
-
--- Left Side
-vim.opt.statusline = ""
-vim.opt.statusline = vim.opt.statusline + " %M"
-vim.opt.statusline = vim.opt.statusline + " %y"
-vim.opt.statusline = vim.opt.statusline + " %r"
-vim.opt.statusline = vim.opt.statusline + " %F"
-
--- Right side
-vim.opt.statusline = vim.opt.statusline + "%="
-vim.opt.statusline = vim.opt.statusline + " %c:%l/%L"
-vim.opt.statusline = vim.opt.statusline + " %p%%"
-vim.opt.statusline = vim.opt.statusline + " [%n]"
-
--- -----------------------------------------------------------
---                       Markdown Composer Options
--- -----------------------------------------------------------
-vim.g.markdown_composer_autostart = 0
-
-
--- -----------------------------------------------------------
---                       Telescope
--- -----------------------------------------------------------
--- Find files using Telescope
-
-vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", { noremap = true })
+-- Telescope Configuration
+require("config/telescope")
