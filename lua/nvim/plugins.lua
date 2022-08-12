@@ -26,6 +26,7 @@ return require("packer").startup(function(use)
     "hrsh7th/cmp-path",
     "hrsh7th/nvim-cmp",
     "kyazdani42/nvim-web-devicons",
+    "L3MON4D3/LuaSnip",
     "lukas-reineke/indent-blankline.nvim",
     "mbbill/undotree",
     "mfussenegger/nvim-dap",
@@ -35,6 +36,8 @@ return require("packer").startup(function(use)
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
     "nvim-treesitter/nvim-treesitter",
+    "rafamadriz/friendly-snippets",
+    "saadparwaiz1/cmp_luasnip",
     "sheerun/vim-polyglot",
     "williamboman/mason-lspconfig",
     "williamboman/mason.nvim"
