@@ -39,4 +39,7 @@ require("config/telescope")
 require("config/nvim_cmp")
 
 -- LuaSnip Configuration
-require("config/luasnip")
+require("config/lua_snip")
+
+-- Indent Blankline Configuration
+require("config/indent_blankline")

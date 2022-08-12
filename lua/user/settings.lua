@@ -20,9 +20,6 @@ vim.opt.termguicolors = true
 vim.g.codedark_conservative = 1
 vim.cmd [[colorscheme codedark]]
 
--- Set indent character for indent-blankline.nvim plugin
-vim.g.indent_blankline_char = "⦙"
-
 -- File Browsing Window properties
 vim.g.netrw_preview = 1
 vim.g.netrw_banner = 0
