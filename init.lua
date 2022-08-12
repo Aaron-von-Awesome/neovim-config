@@ -2,147 +2,20 @@
 --                           Neovim Config File von Awesome
 -- ==========================================================================================
 
--- -----------------------------------------------------------
---                      Requires
--- -----------------------------------------------------------
-
+-- Install Plugins
 require("nvim.plugins")
 
-require("nvim-treesitter.configs").setup {
-  -- A list of parser names, or "all"
-  ensure_installed = {
-    "yaml", "lua", "bash", "vim", "typescript", "toml",
-    "sql", "ruby", "regex", "python", "php", "markdown",
-    "make", "json", "javascript", "java", "http", "html",
-    "graphql", "go", "dot", "css", "comment", "c_sharp", "c"
-  },
+-- Treesitter
+--   https://github.com/nvim-treesitter/nvim-treesitter
+require("config.treesitter")
 
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+-- Mason - LSP servers, DAP servers, linters, and formatters
+--   https://github.com/williamboman/mason.nvim
+--   https://github.com/williamboman/mason-lspconfig.nvim
+require("config.mason")
 
-  -- Automatically install missing parsers when entering buffer
-  auto_install = true,
-
-  -- List of parsers to ignore installing (for "all")
-  --ignore_install = { "javascript" },
-
-  highlight = {
-    -- `false` will disable the whole extension
-    enable = true,
-
-    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-    -- the name of the parser)
-    -- list of language that will be disabled
-    --disable = { "c", "rust" },
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-}
-
-require("mason").setup({
-  ui = {
-    icons = {
-      package_installed = "✓",
-      package_pending = "➜",
-      package_uninstalled = "✗"
-    }
-  }
-})
-
-require("mason-lspconfig").setup({
-  ensure_installed = { "ansiblels@0.5.0", "yamlls", "sumneko_lua", "dotls", "pyright", "gopls", "tsserver", "html",
-    "dockerls" },
-  automatic_installation = true
-})
-
-
--- -----------------------------------------------------------
---                LSP Mappings and Settings
--- -----------------------------------------------------------
-
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
-
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap = true, silent = true, buffer = bufnr }
-  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set("n", "<leader>K", vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set("n", "<leader>wl", function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
-  vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-  vim.keymap.set("n", "<leader>fm", ":lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
-end
-
-require("lspconfig").ansiblels.setup({
-  on_attach = on_attach,
-})
-
-require("lspconfig").yamlls.setup({
-  on_attach = on_attach,
-})
-
-require("lspconfig").sumneko_lua.setup({
-  on_attach = on_attach,
-  settings = {
-    Lua = {
-      diagnostics = {
-        -- Get the language server to recognize the `vim` and `use` global
-        globals = { 'vim', 'use' },
-      },
-    },
-  },
-})
-
-require("lspconfig").dotls.setup({
-  on_attach = on_attach,
-})
-
-require("lspconfig").pyright.setup({
-  on_attach = on_attach,
-})
-
-require("lspconfig").gopls.setup({
-  on_attach = on_attach,
-})
-
-require("lspconfig").tsserver.setup({
-  on_attach = on_attach,
-})
-
-require("lspconfig").html.setup({
-  on_attach = on_attach,
-})
-
-require("lspconfig").dockerls.setup({
-  on_attach = on_attach,
-})
-
+-- LSP Servers
+require("config.lsp")
 
 -- -----------------------------------------------------------
 --                  Magical Auto Commands
