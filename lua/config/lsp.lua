@@ -36,11 +36,15 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>fm", ":lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
 end
 
+-- Need for using nvim-cmp Plugin
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 -- --------------------------------------------------------
 --                      Ansible
 -- --------------------------------------------------------
 require("lspconfig").ansiblels.setup({
   on_attach = on_attach,
+  capabilities = capabilities
 })
 
 -- --------------------------------------------------------
@@ -48,6 +52,7 @@ require("lspconfig").ansiblels.setup({
 -- --------------------------------------------------------
 require("lspconfig").yamlls.setup({
   on_attach = on_attach,
+  capabilities = capabilities
 })
 
 -- --------------------------------------------------------
@@ -55,6 +60,7 @@ require("lspconfig").yamlls.setup({
 -- --------------------------------------------------------
 require("lspconfig").sumneko_lua.setup({
   on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     Lua = {
       diagnostics = {
@@ -70,6 +76,7 @@ require("lspconfig").sumneko_lua.setup({
 -- --------------------------------------------------------
 require("lspconfig").dotls.setup({
   on_attach = on_attach,
+  capabilities = capabilities
 })
 
 -- --------------------------------------------------------
@@ -77,6 +84,7 @@ require("lspconfig").dotls.setup({
 -- --------------------------------------------------------
 require("lspconfig").pyright.setup({
   on_attach = on_attach,
+  capabilities = capabilities
 })
 
 -- --------------------------------------------------------
@@ -84,6 +92,7 @@ require("lspconfig").pyright.setup({
 -- --------------------------------------------------------
 require("lspconfig").gopls.setup({
   on_attach = on_attach,
+  capabilities = capabilities
 })
 
 -- --------------------------------------------------------
@@ -91,6 +100,7 @@ require("lspconfig").gopls.setup({
 -- --------------------------------------------------------
 require("lspconfig").tsserver.setup({
   on_attach = on_attach,
+  capabilities = capabilities
 })
 
 -- --------------------------------------------------------
@@ -98,6 +108,7 @@ require("lspconfig").tsserver.setup({
 -- --------------------------------------------------------
 require("lspconfig").html.setup({
   on_attach = on_attach,
+  capabilities = capabilities
 })
 
 -- --------------------------------------------------------
@@ -105,4 +116,5 @@ require("lspconfig").html.setup({
 -- --------------------------------------------------------
 require("lspconfig").dockerls.setup({
   on_attach = on_attach,
+  capabilities = capabilities
 })

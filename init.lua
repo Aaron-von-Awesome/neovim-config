@@ -34,3 +34,6 @@ require("config/markdown_composer")
 
 -- Telescope Configuration
 require("config/telescope")
+
+-- Nvim-cmp Configuration
+require("config/nvim_cmp")

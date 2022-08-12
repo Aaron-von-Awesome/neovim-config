@@ -20,18 +20,23 @@ return require("packer").startup(function(use)
 
   -- Plugins
   use {
-    "mbbill/undotree",
-    "sheerun/vim-polyglot",
-    "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
-    "nvim-treesitter/nvim-treesitter",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-path",
+    "hrsh7th/nvim-cmp",
     "kyazdani42/nvim-web-devicons",
-    "neovim/nvim-lspconfig",
     "lukas-reineke/indent-blankline.nvim",
-    "williamboman/mason-lspconfig",
+    "mbbill/undotree",
     "mfussenegger/nvim-dap",
     "mfussenegger/nvim-lint",
     "mhartington/formatter.nvim",
+    "neovim/nvim-lspconfig",
+    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope.nvim",
+    "nvim-treesitter/nvim-treesitter",
+    "sheerun/vim-polyglot",
+    "williamboman/mason-lspconfig",
     "williamboman/mason.nvim"
   }
 
