@@ -10,6 +10,7 @@ end
 
 local luasnip = require("luasnip") -- Used for LuaSnip
 local cmp = require("cmp")
+local lspkind = require('lspkind')
 
 cmp.setup({
   snippet = {
@@ -20,6 +21,9 @@ cmp.setup({
   window = {
     -- completion = cmp.config.window.bordered(),
     -- documentation = cmp.config.window.bordered(),
+  },
+  view = {
+    entries = { name = "custom", selection_order = "near_cursor" }
   },
   mapping = cmp.mapping.preset.insert({
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -49,26 +53,35 @@ cmp.setup({
       end
     end, { "i", "s" })
   }),
-  sources = cmp.config.sources({
-    { name = "nvim_lsp" },
-    { name = 'luasnip' }
-  },
-    {
-      { name = "buffer" }
-    })
+  sources = cmp.config.sources(
+    { { name = "nvim_lsp" }, { name = 'luasnip' } },
+    { { name = "buffer" } }
+  ),
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = "symbol_text",
+      menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[LuaSnip]",
+        nvim_lua = "[Lua]",
+        latex_symbols = "[Latex]",
+      })
+    }),
+  }
 })
 
 -- Set configuration for specific filetype.
-cmp.setup.filetype("gitcommit", {
-  sources = cmp.config.sources(
-  --{
-  --  { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were to install it.
-  --},
-    {
-      { name = "buffer" }
-    }
-  )
-})
+--cmp.setup.filetype("gitcommit", {
+--  sources = cmp.config.sources(
+--  {
+--    { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were to install it.
+--  },
+--    {
+--      { name = "buffer" }
+--    }
+--  )
+--})
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline("/", {
