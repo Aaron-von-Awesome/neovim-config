@@ -41,6 +41,10 @@ vim.keymap.set("n", "Q", "<nop>", { noremap = true })
 vim.keymap.set("n", "<leader>ggv", ":w<CR>:!dot -T png % -o %:r.png<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>vgv", ":!display %:r.png &<CR>", { noremap = true })
 
+-- Generate Mermaid Diagram
+vim.keymap.set("n", "<leader>gmm", ":!docker run -u $UID --rm -v " .. vim.fn.getcwd() .. ":/data minlag/mermaid-cli -i /data/%:t<CR>",
+  { noremap = true })
+
 -- Copy & Paste to/from system clipboard
 vim.keymap.set("n", "<leader>y", "\"+yy", { noremap = true })
 vim.keymap.set("v", "<leader>y", "\"+y", { noremap = true })
