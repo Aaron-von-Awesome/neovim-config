@@ -38,6 +38,9 @@ require("config/telescope")
 -- Nvim-cmp Configuration
 require("config/nvim_cmp")
 
+-- Nvim-lint Configuration
+require("config/nvim_lint")
+
 -- LuaSnip Configuration
 require("config/lua_snip")
 
