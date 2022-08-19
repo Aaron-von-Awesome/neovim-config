@@ -8,11 +8,11 @@ VonAwesomeGroup = augroup('VonAwesome', {})
 
 local autocmd = vim.api.nvim_create_autocmd
 
--- Trim white space
+-- Trim white space & Format with LSP on save
 autocmd({ "BufWritePre" }, {
   group = VonAwesomeGroup,
   pattern = "*",
-  command = "%s/\\s\\+$//e",
+  command = "%s/\\s\\+$//e | lua vim.lsp.buf.formatting_sync()",
 })
 
 autocmd({ "BufWritePost" }, {
