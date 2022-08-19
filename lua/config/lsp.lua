@@ -33,7 +33,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-  vim.keymap.set("n", "<leader>fm", ":lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
+  vim.keymap.set("n", "<leader>;", ":lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
 end
 
 -- Need for using nvim-cmp Plugin
@@ -68,7 +68,7 @@ require("lspconfig").sumneko_lua.setup({
         globals = { 'vim', 'use' },
       },
     },
-  },
+  }
 })
 
 -- --------------------------------------------------------
@@ -115,6 +115,14 @@ require("lspconfig").html.setup({
 --                      Dockerfile
 -- --------------------------------------------------------
 require("lspconfig").dockerls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities
+})
+
+-- --------------------------------------------------------
+--                      JSON
+-- --------------------------------------------------------
+require("lspconfig").jsonls.setup({
   on_attach = on_attach,
   capabilities = capabilities
 })
