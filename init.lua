@@ -5,6 +5,12 @@
 -- Install Plugins
 require("nvim/plugins")
 
+-- Customize Neovim
+require("user/settings")
+
+-- Custom Key Mappings
+require("user/keymaps")
+
 -- Treesitter
 --   https://github.com/nvim-treesitter/nvim-treesitter
 require("config/treesitter")
@@ -19,12 +25,6 @@ require("config/lsp")
 
 -- Autocommands
 require("nvim/autocommands")
-
--- Customize Neovim
-require("user/settings")
-
--- Custom Key Mappings
-require("user/keymaps")
 
 -- Customize Neovim Status Bar
 require("nvim/status_bar")
