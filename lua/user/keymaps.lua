@@ -42,7 +42,8 @@ vim.keymap.set("n", "<leader>ggv", ":w<CR>:!dot -T png % -o %:r.png<CR>", { nore
 vim.keymap.set("n", "<leader>vgv", ":!display %:r.png &<CR>", { noremap = true })
 
 -- Generate Mermaid Diagram
-vim.keymap.set("n", "<leader>gmm", ":w<CR>:!docker run -u $UID --rm -v " .. vim.fn.getcwd() .. ":/data minlag/mermaid-cli -i /data/%:t<CR>",
+vim.keymap.set("n", "<leader>gmm",
+  ":w<CR>:!docker run -u $UID --rm -v " .. vim.fn.getcwd() .. ":/data minlag/mermaid-cli -i /data/%:t<CR>",
   { noremap = true })
 
 -- Copy & Paste to/from system clipboard
@@ -69,9 +70,9 @@ vim.keymap.set("n", "<leader>ss", ":lua vim.opt.spell = true<CR>", { noremap = t
 vim.keymap.set("n", "<leader>sns", ":lua vim.opt.spell = false<CR>", { noremap = true })
 
 -- Find next spelling mistake
-vim.keymap.set("n", "<leader>sl", "]s", { noremap = true })
+vim.keymap.set("n", "<leader>sj", "]s", { noremap = true })
 -- Find previous spelling mistake
-vim.keymap.set("n", "<leader>sh", "[s", { noremap = true })
+vim.keymap.set("n", "<leader>sk", "[s", { noremap = true })
 -- z= - Replace misspelled word
 -- zg - Good word: Add the word under the cursor to the dictionary
 -- zw - Woops! Undo and remove the word from the dictionary
