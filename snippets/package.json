@@ -1,0 +1,19 @@
+{
+	"name": "von-awesome-snippets",
+	"contributes": {
+		"snippets": [
+			{
+				"language": [
+					"all"
+				],
+				"path": "./all.json"
+			},
+			{
+				"language": [
+					"yaml"
+				],
+				"path": "./azure_pipeline.json"
+			}
+		]
+	}
+}

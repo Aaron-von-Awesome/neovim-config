@@ -1,0 +1,8 @@
+{
+	"snip-example": {
+		"prefix": "z-example",
+		"body": [
+			"expands? jumps? $1 $2 !"
+		]
+	}
+}

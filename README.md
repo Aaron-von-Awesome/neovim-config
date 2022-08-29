@@ -10,11 +10,8 @@ My Neovim configuration settings.
 ### lua Folder Location
 `~/.config/nvim/lua`
 
+### snippets Folder Location
+`~/.config/nvim/snippets`
+
 ### .Tmux.conf Location
 `~/.tmux.conf`
-
-### Colorschemes Folder Location
-Clone the repository into `colorschemes`, and then find the `colors` folder and symbolic link the `.vim` file inside the `~/.config/nvim/colors`
-
-### Plugins Istallation Directory
-`~/.local/share/nvim`
