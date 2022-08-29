@@ -12,7 +12,7 @@
 				"language": [
 					"yaml"
 				],
-				"path": "./azure_pipeline.json"
+				"path": "~/Development/snippets/azure_pipeline.json"
 			}
 		]
 	}
