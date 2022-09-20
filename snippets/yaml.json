@@ -1,0 +1,16 @@
+{
+      "Initial": {
+            "prefix": "va-yaml-lint",
+            "body": [
+                  "---",
+                  "extends: default",
+                  " ",
+                  "rules:",
+                  "  line-length:",
+                  "    max: 150",
+                  "  empty-lines:",
+                  "    max: 4"
+            ],
+            "description": "YAML Lint Starter"
+      }
+}

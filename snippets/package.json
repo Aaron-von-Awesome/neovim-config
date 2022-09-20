@@ -13,6 +13,12 @@
 					"yaml"
 				],
 				"path": "./w-snippets/azure_pipeline.json"
+			},
+			{
+				"language": [
+					"yaml"
+				],
+				"path": "./yaml.json"
 			}
 		]
 	}
