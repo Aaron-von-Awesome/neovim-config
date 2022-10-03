@@ -12,7 +12,7 @@ local autocmd = vim.api.nvim_create_autocmd
 autocmd({ "BufWritePre" }, {
   group = VonAwesomeGroup,
   pattern = "*",
-  command = "%s/\\s\\+$//e | lua vim.lsp.buf.formatting_sync()",
+  command = "%s/\\s\\+$//e | lua vim.lsp.buf.format({ async = true })",
 })
 
 autocmd({ "BufWritePost" }, {
