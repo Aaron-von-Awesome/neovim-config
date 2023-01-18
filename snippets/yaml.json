@@ -6,8 +6,7 @@
                   "extends: default",
                   " ",
                   "rules:",
-                  "  line-length:",
-                  "    max: 150",
+                  "  line-length: disable",
                   "  empty-lines:",
                   "    max: 4"
             ],
