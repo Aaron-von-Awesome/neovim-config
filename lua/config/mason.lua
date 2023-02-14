@@ -16,7 +16,7 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     "ansiblels@0.5.0",
     "yamlls",
-    "sumneko_lua",
+    "lua_ls",
     "dotls",
     "pyright",
     "gopls",
