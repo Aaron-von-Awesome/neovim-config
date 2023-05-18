@@ -18,6 +18,9 @@ return require("packer").startup(function(use)
   -- Packer can manage itself
   use "wbthomason/packer.nvim"
 
+  -- File Explorer
+  use "nvim-tree/nvim-tree.lua"
+
   -- Helper Plugins
   use "nvim-lua/plenary.nvim"
 

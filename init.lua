@@ -2,6 +2,13 @@
 --                           Neovim Config File von Awesome
 -- ==========================================================================================
 
+-- disable netrw at the very start
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
 -- Install Plugins
 require("nvim/plugins")
 
@@ -46,3 +53,6 @@ require("config/lua_snip")
 
 -- Indent Blankline Configuration
 require("config/indent_blankline")
+
+-- Nvim Tree Configuration
+require("config/nvim_tree")
