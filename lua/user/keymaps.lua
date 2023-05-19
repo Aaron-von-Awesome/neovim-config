@@ -24,7 +24,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
 vim.keymap.set("n", "<leader>nh", ":noh<CR>", { noremap = true })
 
 -- Open tree view for current file directory
-vim.keymap.set("n", "<leader>tv", ":NvimTreeToggle<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>tv", ":NvimTreeFindFile<CR>", { noremap = true })
 
 -- Return to Normal mode whilst in Insert mode using the Terminal
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
