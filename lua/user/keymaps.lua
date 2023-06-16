@@ -42,7 +42,7 @@ vim.keymap.set("n", "<leader>vgv", ":!display %:r.png &<CR>", { noremap = true }
 
 -- Generate Mermaid Diagram
 vim.keymap.set("n", "<leader>gmm",
-  ":w<CR>:!docker run -u $UID --rm -v " .. vim.fn.getcwd() .. ":/data minlag/mermaid-cli -i /data/%:t<CR>",
+  ":w<CR>:!docker run --rm -u `id -u`:`id -g` -v " .. vim.fn.getcwd() .. ":/data minlag/mermaid-cli --outputFormat png -i /data/%:t<CR>",
   { noremap = true })
 
 -- Copy & Paste to/from system clipboard
