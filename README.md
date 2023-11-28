@@ -13,5 +13,5 @@ My Neovim configuration settings.
 ### snippets Folder Location
 `~/.config/nvim/snippets`
 
-### .Tmux.conf Location
-`~/.tmux.conf`
+### Tmux.conf Location
+`~/tmux.conf`
