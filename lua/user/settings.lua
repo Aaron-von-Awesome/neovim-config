@@ -38,6 +38,9 @@ vim.opt.relativenumber = true
 -- Show line under cursor
 vim.opt.cursorline = true
 
+-- Highlight Cursor Column
+vim.opt.cursorcolumn = true
+
 -- Tab Options
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
