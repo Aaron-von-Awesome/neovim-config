@@ -15,13 +15,13 @@ require("mason").setup({
 require("mason-lspconfig").setup({
   ensure_installed = {
     "ansiblels@0.5.0",
-    "yamlls",
-    "lua_ls",
+    "dockerls",
     "dotls",
-    "pyright",
     "gopls",
-    "tsserver",
     "html",
-    "dockerls" },
+    "lua_ls",
+    "pyright",
+    "tsserver",
+    "yamlls" },
   automatic_installation = true
 })
