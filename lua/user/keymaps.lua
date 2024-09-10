@@ -6,7 +6,7 @@
 
 -- Quick reload of init.lua
 vim.keymap.set("n", "<leader><CR>",
-  ":execute 'lua vim.lsp.stop_client(vim.lsp.get_active_clients())' | luafile ~/.config/nvim/init.lua<CR>",
+  ":execute 'lua vim.lsp.stop_client(vim.lsp.get_clients())' | luafile ~/.config/nvim/init.lua<CR>",
   { noremap = true })
 
 -- Navigate between windows easier
