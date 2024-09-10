@@ -33,7 +33,8 @@ vim.opt.hidden = true
 vim.opt.signcolumn = "yes"
 
 -- Line Number Settings
-vim.opt.relativenumber = true
+vim.opt.number = true
+vim.opt.relativenumber = false
 
 -- Show line under cursor
 vim.opt.cursorline = true
