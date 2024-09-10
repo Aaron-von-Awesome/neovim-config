@@ -21,7 +21,7 @@ require("mason-lspconfig").setup({
     "html",
     "lua_ls",
     "pyright",
-    "tsserver",
+    "ts_ls",
     "yamlls" },
   automatic_installation = true
 })
