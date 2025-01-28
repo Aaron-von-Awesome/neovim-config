@@ -2,10 +2,10 @@
 
 My Neovim configuration settings.
 
-## File Location
+## File Locations
 
-### Init.vim Location
-`~/.config/nvim/init.vim`
+### Init.lua Location
+`~/.config/nvim/init.lua`
 
 ### lua Folder Location
 `~/.config/nvim/lua`

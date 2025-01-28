@@ -17,7 +17,6 @@ require("mason-lspconfig").setup({
     "ansiblels@0.5.0",
     "dockerls",
     "dotls",
-    "gopls",
     "html",
     "lua_ls",
     "pyright",

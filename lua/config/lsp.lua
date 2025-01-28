@@ -88,14 +88,6 @@ require("lspconfig").pyright.setup({
 })
 
 -- --------------------------------------------------------
---                      Go
--- --------------------------------------------------------
-require("lspconfig").gopls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities
-})
-
--- --------------------------------------------------------
 --                      JavaScript
 -- --------------------------------------------------------
 require("lspconfig").ts_ls.setup({
