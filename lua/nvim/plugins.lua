@@ -74,7 +74,15 @@ return require("packer").startup(function(use)
   }
 
   -- Color Schemes
-  use "tomasiser/vim-code-dark"
+  use {
+    "tomasiser/vim-code-dark"
+  }
+  use {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  }
 
   -- Icons
   use "kyazdani42/nvim-web-devicons"

@@ -17,8 +17,7 @@ vim.opt.wildignore = vim.opt.wildignore + "tags"
 
 -- Colors/Color Schemes
 vim.opt.termguicolors = true
-vim.g.codedark_conservative = 1
-vim.cmd [[colorscheme codedark]]
+vim.cmd [[colorscheme tokyonight-night]]
 
 -- File Browsing Window properties
 vim.g.netrw_preview = 1
