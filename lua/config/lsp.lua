@@ -42,23 +42,25 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protoc
 -- --------------------------------------------------------
 --                      Ansible
 -- --------------------------------------------------------
-require("lspconfig").ansiblels.setup({
+vim.lsp.config("ansiblels", {
   on_attach = on_attach,
   capabilities = capabilities
 })
+vim.lsp.enable("ansiblels")
 
 -- --------------------------------------------------------
 --                      YAML
 -- --------------------------------------------------------
-require("lspconfig").yamlls.setup({
+vim.lsp.config("yamlls", {
   on_attach = on_attach,
   capabilities = capabilities
 })
+vim.lsp.enable("yamlls")
 
 -- --------------------------------------------------------
 --                      Lua
 -- --------------------------------------------------------
-require("lspconfig").lua_ls.setup({
+vim.lsp.config("lua_ls", {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -70,51 +72,49 @@ require("lspconfig").lua_ls.setup({
     },
   }
 })
-
--- --------------------------------------------------------
---                      dot Graphviz
--- --------------------------------------------------------
-require("lspconfig").dotls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities
-})
+vim.lsp.enable("lua_ls")
 
 -- --------------------------------------------------------
 --                      Python
 -- --------------------------------------------------------
-require("lspconfig").pyright.setup({
+vim.lsp.config("pyright", {
   on_attach = on_attach,
   capabilities = capabilities
 })
+vim.lsp.enable("pyright")
 
 -- --------------------------------------------------------
 --                      JavaScript
 -- --------------------------------------------------------
-require("lspconfig").ts_ls.setup({
+vim.lsp.config("ts_ls", {
   on_attach = on_attach,
   capabilities = capabilities
 })
+vim.lsp.enable("ts_ls")
 
 -- --------------------------------------------------------
 --                      HTML
 -- --------------------------------------------------------
-require("lspconfig").html.setup({
+vim.lsp.config("html", {
   on_attach = on_attach,
   capabilities = capabilities
 })
+vim.lsp.enable("html")
 
 -- --------------------------------------------------------
 --                      Dockerfile
 -- --------------------------------------------------------
-require("lspconfig").dockerls.setup({
+vim.lsp.config("dockerls", {
   on_attach = on_attach,
   capabilities = capabilities
 })
+vim.lsp.enable("dockerls")
 
 -- --------------------------------------------------------
 --                      JSON
 -- --------------------------------------------------------
-require("lspconfig").jsonls.setup({
+vim.lsp.config("jsonls", {
   on_attach = on_attach,
   capabilities = capabilities
 })
+vim.lsp.enable("jsonls")

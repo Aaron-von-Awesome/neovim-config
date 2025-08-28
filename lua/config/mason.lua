@@ -14,10 +14,10 @@ require("mason").setup({
 
 require("mason-lspconfig").setup({
   ensure_installed = {
-    "ansiblels@0.5.0",
+    "ansiblels",
     "dockerls",
-    "dotls",
     "html",
+    "jsonls",
     "lua_ls",
     "pyright",
     "ts_ls",
