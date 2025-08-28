@@ -53,7 +53,12 @@ vim.lsp.enable("ansiblels")
 -- --------------------------------------------------------
 vim.lsp.config("yamlls", {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
+  settings = {
+    yaml = {
+      format = { enable = false }
+    }
+  }
 })
 vim.lsp.enable("yamlls")
 
