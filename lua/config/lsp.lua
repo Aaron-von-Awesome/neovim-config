@@ -44,7 +44,9 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protoc
 -- --------------------------------------------------------
 vim.lsp.config("ansiblels", {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = { "yaml", "yml", "ansible" },
+  single_file_support = false
 })
 vim.lsp.enable("ansiblels")
 
