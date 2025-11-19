@@ -69,6 +69,7 @@ return require("packer").startup(function(use)
 
   -- Utilities & Tools
   use {
+    "benomahony/uv.nvim",
     "mbbill/undotree",
     "nvim-telescope/telescope.nvim"
   }

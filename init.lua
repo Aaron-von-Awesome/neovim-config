@@ -56,3 +56,6 @@ require("config/indent_blankline")
 
 -- Nvim Tree Configuration
 require("config/nvim_tree")
+
+-- uv.nvim Configuration
+require("config/uv")
