@@ -5,9 +5,17 @@
 -- vim.keymap.set("<mode>", "<keys>", "<actions>", {<options>})
 
 -- Quick reload of init.lua
-vim.keymap.set("n", "<leader><CR>",
-  ":execute 'lua vim.lsp.stop_client(vim.lsp.get_clients())' | luafile ~/.config/nvim/init.lua<CR>",
-  { noremap = true })
+vim.keymap.set(
+  "n",
+  "<leader><CR>",
+  function()
+    for _, client in ipairs(vim.lsp.get_clients()) do
+      client:stop()
+    end
+    vim.cmd("luafile " .. vim.fn.expand("~/.config/nvim/init.lua"))
+  end,
+  { noremap = true, silent = true }
+)
 
 -- Navigate between windows easier
 vim.keymap.set("n", "<leader>h", ":wincmd h<CR>", { noremap = true })
@@ -42,7 +50,8 @@ vim.keymap.set("n", "<leader>vgv", ":!display %:r.png &<CR>", { noremap = true }
 
 -- Generate Mermaid Diagram
 vim.keymap.set("n", "<leader>gmm",
-  ":w<CR>:!docker run --rm -u `id -u`:`id -g` -v " .. vim.fn.getcwd() .. ":/data ghcr.io/mermaid-js/mermaid-cli/mermaid-cli --scale 10 --outputFormat png -i /data/%:t<CR>",
+  ":w<CR>:!docker run --rm -u `id -u`:`id -g` -v " ..
+  vim.fn.getcwd() .. ":/data ghcr.io/mermaid-js/mermaid-cli/mermaid-cli --scale 10 --outputFormat png -i /data/%:t<CR>",
   { noremap = true })
 
 -- Copy & Paste to/from system clipboard
