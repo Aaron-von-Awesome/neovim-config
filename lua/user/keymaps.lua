@@ -96,3 +96,6 @@ vim.keymap.set("n", "<C-k>", ":cprev<CR>", { noremap = true })
 
 -- Generate ctags
 vim.keymap.set("n", "<leader>gct", ":!ctags -R *<CR>", { noremap = true })
+
+-- Open up a split Terminal
+vim.keymap.set("n", "<leader>st", ":sp|term<CR>", { noremap = true })
