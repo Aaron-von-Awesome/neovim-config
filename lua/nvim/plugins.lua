@@ -1,6 +1,6 @@
--- ======================================================================
+-- ==========================================================================================
 --              Install Plugins and Color Schemes via Packer
--- ======================================================================
+-- ==========================================================================================
 
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -34,7 +34,15 @@ return require("packer").startup(function(use)
   }
 
   -- DAP
-  use "mfussenegger/nvim-dap"
+  use {
+    "mfussenegger/nvim-dap",
+    requires = {
+      "nvim-neotest/nvim-nio",
+      "rcarriga/nvim-dap-ui",
+      "mfussenegger/nvim-dap-python",
+      "theHamsta/nvim-dap-virtual-text",
+    },
+  }
 
   -- Linters
   use "mfussenegger/nvim-lint"
@@ -91,7 +99,6 @@ return require("packer").startup(function(use)
   -- Other
   use "mracos/mermaid.vim"
   use "euclio/vim-markdown-composer"
-
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

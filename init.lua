@@ -10,52 +10,19 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- Install Plugins
-require("nvim/plugins")
+require("nvim.plugins") --nvim/plugins.lua
 
 -- Customize Neovim
-require("user/settings")
+require("user.settings") --user/settings.lua
 
 -- Custom Key Mappings
-require("user/keymaps")
-
--- Treesitter
---   https://github.com/nvim-treesitter/nvim-treesitter
-require("config/treesitter")
-
--- Mason - LSP servers, DAP servers, linters, and formatters
---   https://github.com/williamboman/mason.nvim
---   https://github.com/williamboman/mason-lspconfig.nvim
-require("config/mason")
-
--- LSP Servers
-require("config/lsp")
-
--- Autocommands
-require("nvim/autocommands")
+require("user.keymaps") --user/keymaps.lua
 
 -- Customize Neovim Status Bar
-require("nvim/status_bar")
+require("nvim.status_bar") --nvim/status_bar.lua
 
--- Markdown Composer Configuration
-require("config/markdown_composer")
+-- Autocommands
+require("nvim.autocommands") --nvim/autocommands.lua
 
--- Telescope Configuration
-require("config/telescope")
-
--- Nvim-cmp Configuration
-require("config/nvim_cmp")
-
--- Nvim-lint Configuration
-require("config/nvim_lint")
-
--- LuaSnip Configuration
-require("config/lua_snip")
-
--- Indent Blankline Configuration
-require("config/indent_blankline")
-
--- Nvim Tree Configuration
-require("config/nvim_tree")
-
--- uv.nvim Configuration
-require("config/uv")
+-- Configure Plugins
+require("config.plugins") --config/plugins/init.lua
