@@ -4,7 +4,7 @@
 -- TODO: still have no idea what these are, just coping and pasting :-(
 
 local augroup = vim.api.nvim_create_augroup
-VonAwesomeGroup = augroup('VonAwesome', {})
+VonAwesomeGroup = augroup("VonAwesome", {})
 
 local autocmd = vim.api.nvim_create_autocmd
 
@@ -21,6 +21,20 @@ autocmd({ "BufWritePost" }, {
   end,
 })
 
+-- Added for Floating Terminal Plugin
+autocmd("FileType", {
+  pattern = "python",
+  callback = function()
+    vim.api.nvim_set_keymap("n", "<F5>", ":w<CR>:FloatermNew --autoclose=0 python %<CR>",
+      { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("i", "<F5>", "<ESC>:w<CR>:FloatermNew --autoclose=0 python %<CR>",
+      { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>tr", ":w<CR>:FloatermNew --autoclose=0 python %<CR>",
+      { noremap = true, silent = true })
+  end
+})
+
+-- Used for Packer
 vim.cmd([[
   augroup packer_user_config
     autocmd!

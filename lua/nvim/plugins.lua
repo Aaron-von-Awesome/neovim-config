@@ -10,30 +10,20 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
+
 return require("packer").startup(function(use)
-  -- ---------------- --
-  -- Add plugins here --
-  -- ---------------- --
+  -------------------------------------------------
+  -- Core plugins
+  -------------------------------------------------
+  use { "wbthomason/packer.nvim" }                                -- Packer can manage itself
+  use { "nvim-tree/nvim-tree.lua" }                               -- File Explorer
+  use { "nvim-lua/plenary.nvim" }                                 -- Helper Plugins
+  use { "williamboman/mason.nvim" }                               -- Package Manager for LSP, DAP, linters, and formatters
+  use { "neovim/nvim-lspconfig", "williamboman/mason-lspconfig" } -- LSP
 
-  -- Packer can manage itself
-  use "wbthomason/packer.nvim"
-
-  -- File Explorer
-  use "nvim-tree/nvim-tree.lua"
-
-  -- Helper Plugins
-  use "nvim-lua/plenary.nvim"
-
-  -- Package Manager for LSP, DAP, linters, and formatters
-  use "williamboman/mason.nvim"
-
-  -- LSP
-  use {
-    "neovim/nvim-lspconfig",
-    "williamboman/mason-lspconfig"
-  }
-
-  -- DAP
+  -------------------------------------------------
+  -- Debug Adapter Protocol (DAP)
+  -------------------------------------------------
   use {
     "mfussenegger/nvim-dap",
     requires = {
@@ -44,20 +34,24 @@ return require("packer").startup(function(use)
     },
   }
 
-  -- Linters
-  use "mfussenegger/nvim-lint"
+  -------------------------------------------------
+  -- Linters / Formatters
+  -------------------------------------------------
+  use { "mfussenegger/nvim-lint" }     -- Linters
+  use { "mhartington/formatter.nvim" } -- Formatters
 
-  -- Formatters
-  use "mhartington/formatter.nvim"
-
-  -- Syntactic Sugar
+  -------------------------------------------------
+  -- UI / Syntax
+  -------------------------------------------------
   use {
     "lukas-reineke/indent-blankline.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "sheerun/vim-polyglot"
+    "sheerun/vim-polyglot",
   }
 
-  -- Completion Plugins
+  -------------------------------------------------
+  -- Completion
+  -------------------------------------------------
   use {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-cmdline",
@@ -65,27 +59,24 @@ return require("packer").startup(function(use)
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-path",
     "hrsh7th/nvim-cmp",
-    "onsails/lspkind.nvim"
+    "onsails/lspkind.nvim",
   }
+  use { "L3MON4D3/LuaSnip", "rafamadriz/friendly-snippets", "saadparwaiz1/cmp_luasnip" }
 
-  -- Snippets
-  use {
-    "L3MON4D3/LuaSnip",
-    "rafamadriz/friendly-snippets",
-    "saadparwaiz1/cmp_luasnip"
-  }
-
+  -------------------------------------------------
   -- Utilities & Tools
+  -------------------------------------------------
   use {
     "benomahony/uv.nvim",
     "mbbill/undotree",
-    "nvim-telescope/telescope.nvim"
+    "nvim-telescope/telescope.nvim",
+    "voldikss/vim-floaterm",
   }
 
-  -- Color Schemes
-  use {
-    "tomasiser/vim-code-dark"
-  }
+  -------------------------------------------------
+  -- Color schemes
+  -------------------------------------------------
+  use { "tomasiser/vim-code-dark" }
   use {
     "folke/tokyonight.nvim",
     lazy = false,
@@ -93,16 +84,20 @@ return require("packer").startup(function(use)
     opts = {},
   }
 
+  -------------------------------------------------
   -- Icons
-  use "kyazdani42/nvim-web-devicons"
+  -------------------------------------------------
+  use { "kyazdani42/nvim-web-devicons" }
 
-  -- Other
-  use "mracos/mermaid.vim"
-  use "euclio/vim-markdown-composer"
+  -------------------------------------------------
+  -- Miscellaneous plugins
+  -------------------------------------------------
+  use { "mracos/mermaid.vim", "euclio/vim-markdown-composer" }
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
+  -------------------------------------------------
+  -- Auto‑run packer sync after first install
+  -------------------------------------------------
   if PACKER_BOOTSTRAP then
-    require('packer').sync()
+    require("packer").sync()
   end
 end)

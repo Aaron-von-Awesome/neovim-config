@@ -2,41 +2,16 @@
 --                          Configure Plugins - init.lua
 -- ==========================================================================================
 
--- Treesitter
---   https://github.com/nvim-treesitter/nvim-treesitter
-require("config.plugins.treesitter")
-
--- Mason - LSP servers, DAP servers, linters, and formatters
---   https://github.com/williamboman/mason.nvim
---   https://github.com/williamboman/mason-lspconfig.nvim
-require("config.plugins.mason")
-
--- LSP Servers
-require("config.plugins.lsp")
-
--- Markdown Composer Configuration
-require("config.plugins.markdown_composer")
-
--- Telescope Configuration
-require("config.plugins.telescope")
-
--- Nvim-cmp Configuration
-require("config.plugins.nvim_cmp")
-
--- Nvim-dap Configuration
-require("config.plugins.nvim_dap")
-
--- Nvim-lint Configuration
-require("config.plugins.nvim_lint")
-
--- LuaSnip Configuration
-require("config.plugins.lua_snip")
-
--- Indent Blankline Configuration
-require("config.plugins.indent_blankline")
-
--- Nvim Tree Configuration
-require("config.plugins.nvim_tree")
-
--- uv.nvim Configuration
-require("config.plugins.uv")
+require("config.plugins.floatterm")         -- vim-floaterm Configuration
+require("config.plugins.indent_blankline")  -- Indent Blankline Configuration
+require("config.plugins.lsp")               -- LSP Servers
+require("config.plugins.lua_snip")          -- LuaSnip Configuration
+require("config.plugins.markdown_composer") -- Markdown Composer Configuration
+require("config.plugins.mason")             -- Mason - LSP servers, DAP servers, linters, and formatters
+require("config.plugins.nvim_cmp")          -- Nvim-cmp Configuration
+require("config.plugins.nvim_dap")          -- Nvim-dap Configuration
+require("config.plugins.nvim_lint")         -- Nvim-lint Configuration
+require("config.plugins.nvim_tree")         -- Nvim Tree Configuration
+require("config.plugins.telescope")         -- Telescope Configuration
+require("config.plugins.treesitter")        -- Treesitter
+require("config.plugins.uv")                -- uv.nvim Configuration
