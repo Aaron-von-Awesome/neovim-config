@@ -4,6 +4,8 @@
 
 -- vim.keymap.set("<mode>", "<keys>", "<actions>", {<options>})
 
+local opts = { noremap = true }
+
 -- Quick reload of init.lua
 vim.keymap.set(
   "n",
@@ -18,35 +20,35 @@ vim.keymap.set(
 )
 
 -- Navigate between windows easier
-vim.keymap.set("n", "<leader>h", ":wincmd h<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>j", ":wincmd j<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>k", ":wincmd k<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>l", ":wincmd l<CR>", { noremap = true })
-vim.keymap.set("n", "<leader><tab>", "<c-^>", { noremap = true })
+vim.keymap.set("n", "<leader>h", ":wincmd h<CR>", opts)
+vim.keymap.set("n", "<leader>j", ":wincmd j<CR>", opts)
+vim.keymap.set("n", "<leader>k", ":wincmd k<CR>", opts)
+vim.keymap.set("n", "<leader>l", ":wincmd l<CR>", opts)
+vim.keymap.set("n", "<leader><tab>", "<c-^>", opts)
 
 -- Move lines of blocks of lines at once
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
 
 -- Shortcut for :noh
-vim.keymap.set("n", "<leader>nh", ":noh<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>nh", ":noh<CR>", opts)
 
 -- Open tree view for current file directory
-vim.keymap.set("n", "<leader>tv", ":NvimTreeFindFile<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>tv", ":NvimTreeFindFile<CR>", opts)
 
 -- Return to Normal mode whilst in Insert mode using the Terminal
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", opts)
 
 -- Still need to be able to send <Esc> whilst using Terminal
-vim.keymap.set("t", "<A-[>", "<Esc>", { noremap = true })
+vim.keymap.set("t", "<A-[>", "<Esc>", opts)
 
 -- I keep typing Q
-vim.keymap.set("n", "Q", "<nop>", { noremap = true })
+vim.keymap.set("n", "Q", "<nop>", opts)
 
 -- Generate Graphviz custom key binding (TODO: How do I detect a dot file, and
 -- only allow this to run against a dot file?)
-vim.keymap.set("n", "<leader>ggv", ":w<CR>:!dot -T png % -o %:r.png<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>vgv", ":!display %:r.png &<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>ggv", ":w<CR>:!dot -T png % -o %:r.png<CR>", opts)
+vim.keymap.set("n", "<leader>vgv", ":!display %:r.png &<CR>", opts)
 
 -- Generate Mermaid Diagram
 vim.keymap.set("n", "<leader>gmm",
@@ -55,47 +57,47 @@ vim.keymap.set("n", "<leader>gmm",
   { noremap = true })
 
 -- Copy & Paste to/from system clipboard
-vim.keymap.set("n", "<leader>y", "\"+yy", { noremap = true })
-vim.keymap.set("v", "<leader>y", "\"+y", { noremap = true })
-vim.keymap.set("n", "<leader>Y", "gg\"+yG", { noremap = true })
-vim.keymap.set("n", "<leader>p", "\"+p", { noremap = true })
-vim.keymap.set("v", "<leader>p", "\"+p", { noremap = true })
+vim.keymap.set("n", "<leader>y", "\"+yy", opts)
+vim.keymap.set("v", "<leader>y", "\"+y", opts)
+vim.keymap.set("n", "<leader>Y", "gg\"+yG", opts)
+vim.keymap.set("n", "<leader>p", "\"+p", opts)
+vim.keymap.set("v", "<leader>p", "\"+p", opts)
 
 -- Copy relative path
-vim.keymap.set("n", "<leader>cf", ":let @+=expand(\"%\")<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>cf", ":let @+=expand(\"%\")<CR>", opts)
 
 -- Copy absolute path
-vim.keymap.set("n", "<leader>cF", ":let @+=expand(\"%:p\")<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>cF", ":let @+=expand(\"%:p\")<CR>", opts)
 
 -- Window Controls
-vim.keymap.set("n", "<A-Up>", ":lua vim.cmd[[vert resize +5]]<CR>", { noremap = true })
-vim.keymap.set("n", "<A-Down>", ":lua vim.cmd[[vert resize -5]]<CR>", { noremap = true })
-vim.keymap.set("n", "<C-Up>", ":lua vim.cmd[[resize +5]]<CR>", { noremap = true })
-vim.keymap.set("n", "<C-Down>", ":lua vim.cmd[[resize -5]]<CR>", { noremap = true })
+vim.keymap.set("n", "<A-Up>", ":lua vim.cmd[[vert resize +5]]<CR>", opts)
+vim.keymap.set("n", "<A-Down>", ":lua vim.cmd[[vert resize -5]]<CR>", opts)
+vim.keymap.set("n", "<C-Up>", ":lua vim.cmd[[resize +5]]<CR>", opts)
+vim.keymap.set("n", "<C-Down>", ":lua vim.cmd[[resize -5]]<CR>", opts)
 
 -- Spell Check
-vim.keymap.set("n", "<leader>ss", ":lua vim.opt.spell = true<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>sns", ":lua vim.opt.spell = false<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>ss", ":lua vim.opt.spell = true<CR>", opts)
+vim.keymap.set("n", "<leader>sns", ":lua vim.opt.spell = false<CR>", opts)
 
 -- Find next spelling mistake
-vim.keymap.set("n", "<leader>sj", "]s", { noremap = true })
+vim.keymap.set("n", "<leader>sj", "]s", opts)
 -- Find previous spelling mistake
-vim.keymap.set("n", "<leader>sk", "[s", { noremap = true })
+vim.keymap.set("n", "<leader>sk", "[s", opts)
 -- z= - Replace misspelled word
 -- zg - Good word: Add the word under the cursor to the dictionary
 -- zw - Woops! Undo and remove the word from the dictionary
 
 -- Word Wrap
 vim.opt.wrap = false
-vim.keymap.set("n", "<leader>snw", ":lua vim.opt.wrap = false<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>sw", ":lua vim.opt.wrap = true<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>snw", ":lua vim.opt.wrap = false<CR>", opts)
+vim.keymap.set("n", "<leader>sw", ":lua vim.opt.wrap = true<CR>", opts)
 
 -- Quickfix List Navigation
-vim.keymap.set("n", "<C-j>", ":cnext<CR>", { noremap = true })
-vim.keymap.set("n", "<C-k>", ":cprev<CR>", { noremap = true })
+vim.keymap.set("n", "<C-j>", ":cnext<CR>", opts)
+vim.keymap.set("n", "<C-k>", ":cprev<CR>", opts)
 
 -- Generate ctags
-vim.keymap.set("n", "<leader>gct", ":!ctags -R *<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gct", ":!ctags -R *<CR>", opts)
 
 -- Open up a split Terminal
-vim.keymap.set("n", "<leader>st", ":sp|term<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>st", ":sp|term<CR>", opts)
