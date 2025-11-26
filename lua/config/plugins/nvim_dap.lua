@@ -75,4 +75,4 @@ vim.keymap.set("n", "<Leader>ds",
         widgets.centered_float(widgets.scopes)
     end, opts)
 vim.keymap.set("n", "<Leader>dt", function() require("dap").terminate() end, opts) -- Terminate Dedugging
-vim.keymap.set("n", "<Leader>ui", function() dapui.toggle() end, opts)             -- Toggle DAP UI
+vim.keymap.set("n", "<Leader>du", function() dapui.toggle() end, opts)             -- Toggle DAP UI
