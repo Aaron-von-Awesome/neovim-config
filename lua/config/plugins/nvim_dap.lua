@@ -51,12 +51,13 @@ end
 
 local opts = { noremap = true }
 
+vim.keymap.set("n", "<leader>?", function() require("dapui").eval(nil, { enter = true }) end)          -- Eval Variable under Cursor
+
 vim.keymap.set("n", "<F2>", function() require("dap").continue() end, opts)                            -- Continue / Start
 vim.keymap.set("n", "<F3>", function() require("dap").step_into() end, opts)                           -- Step Into
 vim.keymap.set("n", "<F4>", function() require("dap").step_over() end, opts)                           -- Step Over
 vim.keymap.set("n", "<F6>", function() require("dap").step_out() end)
 vim.keymap.set("n", "<leader>b", function() require("dap").toggle_breakpoint() end, opts)              -- Toggle Breakpoint
-vim.keymap.set("n", "<leader>B", function() require("dap").set_breakpoint() end, opts)                 -- Set Breakpoint
 vim.keymap.set("n", "<leader>lp",
     function() require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: ")) end, opts) -- Log Breakpoint Message
 vim.keymap.set("n", "<leader>dr", function() require("dap").repl.open() end, opts)                     -- Open Repl
