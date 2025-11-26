@@ -25,10 +25,6 @@ autocmd({ "BufWritePost" }, {
 autocmd("FileType", {
   pattern = "python",
   callback = function()
-    vim.api.nvim_set_keymap("n", "<F5>", ":w<CR>:FloatermNew --autoclose=0 python %<CR>",
-      { noremap = true, silent = true })
-    vim.api.nvim_set_keymap("i", "<F5>", "<ESC>:w<CR>:FloatermNew --autoclose=0 python %<CR>",
-      { noremap = true, silent = true })
     vim.api.nvim_set_keymap("n", "<leader>tr", ":w<CR>:FloatermNew --autoclose=0 python %<CR>",
       { noremap = true, silent = true })
   end
