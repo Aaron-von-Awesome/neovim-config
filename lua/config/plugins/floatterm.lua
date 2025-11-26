@@ -12,7 +12,7 @@ vim.g.floaterm_width         = 0.9
 -------------------------------------------------
 -- Keymaps
 -------------------------------------------------
-vim.g.floaterm_keymap_new    = "<leader>ts"
-vim.g.floaterm_keymap_prev   = "<leader>tp"
-vim.g.floaterm_keymap_next   = "<leader>tn"
-vim.g.floaterm_keymap_toggle = "<leader>tt"
+vim.g.floaterm_keymap_new    = "<Leader>ts"
+vim.g.floaterm_keymap_prev   = "<Leader>tp"
+vim.g.floaterm_keymap_next   = "<Leader>tn"
+vim.g.floaterm_keymap_toggle = "<Leader>tt"
