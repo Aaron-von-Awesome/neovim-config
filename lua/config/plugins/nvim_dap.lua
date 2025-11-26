@@ -2,13 +2,14 @@
 --                      nvim-dap Plugin Configuration
 -- ==========================================================================================
 
-
 local dap = require("dap")
 local dapui = require("dapui")
+local nvim_dap_virtaul_text = require("nvim-dap-virtual-text")
 local dap_python = require("dap-python")
+local opts = { noremap = true }
 
-require("dapui").setup({})
-require("nvim-dap-virtual-text").setup({
+dapui.setup({})
+nvim_dap_virtaul_text.setup({
     commented = true, -- Show virtual text alongside comment
 })
 
@@ -44,12 +45,18 @@ vim.fn.sign_define("DapStopped", {
     numhl = "DiagnosticSignWarn",
 })
 
+-------------------------------------------------
 -- Automatically open/close DAP UI
+-------------------------------------------------
+
 dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
 end
 
-local opts = { noremap = true }
+
+-------------------------------------------------
+-- DAP Keymaps
+-------------------------------------------------
 
 vim.keymap.set("n", "<Leader>?", function() require("dapui").eval(nil, { enter = true }) end)          -- Eval Variable under Cursor
 
@@ -62,17 +69,15 @@ vim.keymap.set("n", "<Leader>lp",
     function() require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: ")) end, opts) -- Log Breakpoint Message
 vim.keymap.set("n", "<Leader>dr", function() require("dap").repl.open() end, opts)                     -- Open Repl
 vim.keymap.set("n", "<Leader>dl", function() require("dap").run_last() end, opts)                      -- Run Last
-vim.keymap.set({ "n", "v" }, "<Leader>dh", function() require("dap.ui.widgets").hover() end, opts)
-vim.keymap.set({ "n", "v" }, "<Leader>dp", function() require("dap.ui.widgets").preview() end, opts)
 vim.keymap.set("n", "<Leader>df",
     function()
         local widgets = require("dap.ui.widgets")
         widgets.centered_float(widgets.frames)
-    end, opts)
+    end, opts) -- Show DAP Frame Widget
 vim.keymap.set("n", "<Leader>ds",
     function()
         local widgets = require("dap.ui.widgets")
         widgets.centered_float(widgets.scopes)
-    end, opts)
+    end, opts)                                                                     -- Show DAP Scopes Widget
 vim.keymap.set("n", "<Leader>dt", function() require("dap").terminate() end, opts) -- Terminate Dedugging
 vim.keymap.set("n", "<Leader>du", function() dapui.toggle() end, opts)             -- Toggle DAP UI
