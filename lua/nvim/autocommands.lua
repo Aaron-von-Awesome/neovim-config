@@ -20,12 +20,3 @@ autocmd({ "BufWritePost" }, {
     require("lint").try_lint()
   end,
 })
-
--- Added for Floating Terminal Plugin
-autocmd("FileType", {
-  pattern = "python",
-  callback = function()
-    vim.api.nvim_set_keymap("n", "<Leader>tr", ":w<CR>:FloatermNew --autoclose=0 python %<CR>",
-      { noremap = true, silent = true })
-  end
-})
