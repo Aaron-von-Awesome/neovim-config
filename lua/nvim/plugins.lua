@@ -1,103 +1,99 @@
 -- ==========================================================================================
---              Install Plugins and Color Schemes via Packer
+--              Install Plugins and Color Schemes via Nvim.Pack
 -- ==========================================================================================
 
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim",
-    install_path })
-  vim.cmd [[packadd packer.nvim]]
-end
-
-
-return require("packer").startup(function(use)
-  -------------------------------------------------
-  -- Core plugins
-  -------------------------------------------------
-  use { "wbthomason/packer.nvim" }                                -- Packer can manage itself
-  use { "nvim-tree/nvim-tree.lua" }                               -- File Explorer
-  use { "nvim-lua/plenary.nvim" }                                 -- Helper Plugins
-  use { "williamboman/mason.nvim" }                               -- Package Manager for LSP, DAP, linters, and formatters
-  use { "neovim/nvim-lspconfig", "williamboman/mason-lspconfig" } -- LSP
-
-  -------------------------------------------------
-  -- Debug Adapter Protocol (DAP)
-  -------------------------------------------------
-  use {
-    "mfussenegger/nvim-dap",
-    requires = {
-      "mfussenegger/nvim-dap-python",
-      "nvim-neotest/nvim-nio",
-      "rcarriga/nvim-dap-ui",
-      "theHamsta/nvim-dap-virtual-text",
-    },
+-------------------------------------------------
+-- Core plugins
+-------------------------------------------------
+vim.pack.add({ "https://github.com/nvim-tree/nvim-tree.lua.git" }) -- File Explorer
+vim.pack.add({ "https://github.com/nvim-lua/plenary.nvim.git" })   -- Helper Plugins
+vim.pack.add({ "https://github.com/mason-org/mason.nvim.git" })    -- Package Manager for LSP, DAP, linters, and formatters
+vim.pack.add(
+  {
+    "https://github.com/neovim/nvim-lspconfig.git",
+    "https://github.com/mason-org/mason-lspconfig.nvim.git",
   }
+) -- LSP
 
-  -------------------------------------------------
-  -- Linters / Formatters
-  -------------------------------------------------
-  use { "mfussenegger/nvim-lint" }     -- Linters
-  use { "mhartington/formatter.nvim" } -- Formatters
-
-  -------------------------------------------------
-  -- UI / Syntax
-  -------------------------------------------------
-  use {
-    "lukas-reineke/indent-blankline.nvim",
-    "nvim-treesitter/nvim-treesitter",
-    "sheerun/vim-polyglot",
+-------------------------------------------------
+-- Debug Adapter Protocol (DAP)
+-------------------------------------------------
+vim.pack.add(
+  {
+    "https://github.com/mfussenegger/nvim-dap.git",
+    "https://github.com/mfussenegger/nvim-dap-python.git",
+    "https://github.com/nvim-neotest/nvim-nio.git",
+    "https://github.com/rcarriga/nvim-dap-ui.git",
+    "https://github.com/theHamsta/nvim-dap-virtual-text.git",
   }
+)
 
-  -------------------------------------------------
-  -- Completion
-  -------------------------------------------------
-  use {
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-nvim-lua",
-    "hrsh7th/cmp-path",
-    "hrsh7th/nvim-cmp",
-    "onsails/lspkind.nvim",
+-------------------------------------------------
+-- Linters / Formatters
+-------------------------------------------------
+vim.pack.add({ "https://github.com/mfussenegger/nvim-lint.git" })     -- Linters
+vim.pack.add({ "https://github.com/mhartington/formatter.nvim.git" }) -- Formatters
+
+-------------------------------------------------
+-- UI / Syntax
+-------------------------------------------------
+vim.pack.add(
+  {
+    "https://github.com/lukas-reineke/indent-blankline.nvim.git",
+    "https://github.com/nvim-treesitter/nvim-treesitter.git",
+    "https://github.com/sheerun/vim-polyglot.git",
   }
-  use { "L3MON4D3/LuaSnip", "rafamadriz/friendly-snippets", "saadparwaiz1/cmp_luasnip" }
+)
 
-  -------------------------------------------------
-  -- Utilities & Tools
-  -------------------------------------------------
-  use {
-    "benomahony/uv.nvim",
-    "mbbill/undotree",
-    "nvim-telescope/telescope.nvim",
-    "voldikss/vim-floaterm",
+-------------------------------------------------
+-- Completion
+-------------------------------------------------
+vim.pack.add(
+  {
+    "https://github.com/hrsh7th/cmp-buffer.git",
+    "https://github.com/hrsh7th/cmp-cmdline.git",
+    "https://github.com/hrsh7th/cmp-nvim-lsp.git",
+    "https://github.com/hrsh7th/cmp-nvim-lua.git",
+    "https://github.com/hrsh7th/cmp-path.git",
+    "https://github.com/hrsh7th/nvim-cmp.git",
+    "https://github.com/onsails/lspkind.nvim.git", }
+)
+vim.pack.add(
+  {
+    "https://github.com/L3MON4D3/LuaSnip.git",
+    "https://github.com/rafamadriz/friendly-snippets.git",
+    "https://github.com/saadparwaiz1/cmp_luasnip.git",
   }
+)
 
-  -------------------------------------------------
-  -- Color schemes
-  -------------------------------------------------
-  use { "tomasiser/vim-code-dark" }
-  use {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
+-------------------------------------------------
+-- Utilities & Tools
+-------------------------------------------------
+vim.pack.add(
+  {
+    "https://github.com/benomahony/uv.nvim.git",
+    "https://github.com/mbbill/undotree.git",
+    "https://github.com/nvim-telescope/telescope.nvim.git",
+    "https://github.com/voldikss/vim-floaterm.git",
   }
+)
 
-  -------------------------------------------------
-  -- Icons
-  -------------------------------------------------
-  use { "kyazdani42/nvim-web-devicons" }
+-------------------------------------------------
+-- Color schemes
+-------------------------------------------------
+vim.pack.add({ "https://github.com/folke/tokyonight.nvim.git" })
 
-  -------------------------------------------------
-  -- Miscellaneous plugins
-  -------------------------------------------------
-  use { "mracos/mermaid.vim", "euclio/vim-markdown-composer" }
+-------------------------------------------------
+-- Icons
+-------------------------------------------------
+vim.pack.add({ "https://github.com/nvim-tree/nvim-web-devicons.git" })
 
-  -------------------------------------------------
-  -- Auto‑run packer sync after first install
-  -------------------------------------------------
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
-end)
+-------------------------------------------------
+-- Miscellaneous plugins
+-------------------------------------------------
+vim.pack.add(
+  {
+    "https://github.com/mracos/mermaid.vim.git",
+    "https://github.com/euclio/vim-markdown-composer.git",
+  }
+)

@@ -12,6 +12,9 @@ vim.opt.termguicolors = true
 -- Install Plugins
 require("nvim.plugins") --nvim/plugins.lua
 
+-- Configure Plugins
+require("config.plugins") --config/plugins/init.lua
+
 -- Customize Neovim
 require("user.settings") --user/settings.lua
 
@@ -23,6 +26,3 @@ require("nvim.status_bar") --nvim/status_bar.lua
 
 -- Autocommands
 require("nvim.autocommands") --nvim/autocommands.lua
-
--- Configure Plugins
-require("config.plugins") --config/plugins/init.lua
