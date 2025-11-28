@@ -40,7 +40,7 @@ vim.pack.add({ "https://github.com/mhartington/formatter.nvim.git" }) -- Formatt
 vim.pack.add(
   {
     "https://github.com/lukas-reineke/indent-blankline.nvim.git",
-    "https://github.com/nvim-treesitter/nvim-treesitter.git",
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter.git", version = "master" },
     "https://github.com/sheerun/vim-polyglot.git",
   }
 )
