@@ -125,3 +125,12 @@ vim.lsp.config("jsonls", {
   capabilities = capabilities
 })
 vim.lsp.enable("jsonls")
+
+-- --------------------------------------------------------
+--                      Bash
+-- --------------------------------------------------------
+vim.lsp.config("bashls", {
+  on_attach = on_attach,
+  capabilities = capabilities
+})
+vim.lsp.enable("bashls")
