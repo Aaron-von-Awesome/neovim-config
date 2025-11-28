@@ -1,136 +1,183 @@
 -- ==========================================================================================
---                      LSP Servers Configuration
+--                                LSP Servers Configuration
 -- ==========================================================================================
 
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, opts)
-vim.keymap.set("n", "<Leader>dk", vim.diagnostic.goto_prev, opts)
-vim.keymap.set("n", "<Leader>dj", vim.diagnostic.goto_next, opts)
-vim.keymap.set("n", "<Leader>q", vim.diagnostic.setloclist, opts)
-
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
+-- -----------------------------------------------------------------
+--  Helper: on_attach (runs after a server attaches to a buffer)
+-- -----------------------------------------------------------------
 local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
+  -- Enable LSP‑based completion
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
+
+  -- Navigation & actions -------------------------------------------------
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-  vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set("n", "<Leader>K", vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set("n", "<Leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set("n", "<Leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set("n", "<Leader>wl", function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set("n", "rn", vim.lsp.buf.rename, bufopts)
+  vim.keymap.set("n", "ca", vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set("n", ";", function()
+    vim.lsp.buf.format({ async = true })
   end, bufopts)
-  vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, bufopts)
-  vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set("n", "<Leader>;", ":lua vim.lsp.buf.format({ async = true })<CR>", bufopts)
 end
 
--- Need for using nvim-cmp Plugin
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+--------------------------------------------------------------------
+--  Global diagnostic key‑maps
+--------------------------------------------------------------------
+local diag_opts = { noremap = true, silent = true }
+
+vim.keymap.set("n", "e", vim.diagnostic.open_float, diag_opts)
+vim.keymap.set("n", "dk", vim.diagnostic.goto_prev, diag_opts)
+vim.keymap.set("n", "dj", vim.diagnostic.goto_next, diag_opts)
+vim.keymap.set("n", "q", vim.diagnostic.setloclist, diag_opts)
+
+--------------------------------------------------------------------
+--  Server configurations – using vim.lsp.config()
+--------------------------------------------------------------------
+-- NOTE: All calls follow the pattern
+--   vim.lsp.config("<server_name>", { <options> })
+--   vim.lsp.enable("<server_name>")
+--------------------------------------------------------------------
+
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+--  Capabilities – needed for nvim‑cmp integration
+local capabilities = cmp_nvim_lsp.default_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
 
 -- --------------------------------------------------------
---                      Ansible
+--  Ansible
 -- --------------------------------------------------------
 vim.lsp.config("ansiblels", {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "yaml", "yml", "ansible", "yaml.ansible" },
-  single_file_support = false
+  on_attach           = on_attach,
+  capabilities        = capabilities,
+  filetypes           = { "yaml", "yml", "ansible", "yaml.ansible" },
+  single_file_support = false,
+  settings            = {
+    ansiblels = {
+      exclude = {
+        "azure-pipelines/**/*.y*l",
+        "Azure-Pipelines/**/*.y*l",
+        "Pipelines/*.y*l",
+        "/*.azure*",
+        "/azure-pipeline*.y*l"
+      }
+    }
+  }
 })
 vim.lsp.enable("ansiblels")
 
 -- --------------------------------------------------------
---                      YAML
+--  Generic YAML
 -- --------------------------------------------------------
 vim.lsp.config("yamlls", {
-  on_attach = on_attach,
+  on_attach    = on_attach,
   capabilities = capabilities,
-  settings = {
+  settings     = {
     yaml = {
-      format = { enable = false }
-    }
-  }
+      format = { enable = false },
+    },
+  },
 })
 vim.lsp.enable("yamlls")
 
 -- --------------------------------------------------------
---                      Lua
+--  Lua
 -- --------------------------------------------------------
 vim.lsp.config("lua_ls", {
-  on_attach = on_attach,
+  on_attach    = on_attach,
   capabilities = capabilities,
-  settings = {
+  settings     = {
     Lua = {
       diagnostics = {
-        -- Get the language server to recognize the `vim` and `use` global
-        globals = { 'vim', 'use' },
+        globals = { "vim", "use" },
       },
     },
-  }
+  },
 })
 vim.lsp.enable("lua_ls")
 
 -- --------------------------------------------------------
---                      Python
+--  Python
 -- --------------------------------------------------------
 vim.lsp.config("pylsp", {
-  on_attach = on_attach,
-  capabilities = capabilities
+  on_attach    = on_attach,
+  capabilities = capabilities,
 })
 vim.lsp.enable("pylsp")
 
 -- --------------------------------------------------------
---                      JavaScript
+--  TypeScript / JavaScript
 -- --------------------------------------------------------
 vim.lsp.config("ts_ls", {
-  on_attach = on_attach,
-  capabilities = capabilities
+  on_attach    = on_attach,
+  capabilities = capabilities,
 })
 vim.lsp.enable("ts_ls")
 
 -- --------------------------------------------------------
---                      HTML
+--  HTML
 -- --------------------------------------------------------
 vim.lsp.config("html", {
-  on_attach = on_attach,
-  capabilities = capabilities
+  on_attach    = on_attach,
+  capabilities = capabilities,
 })
 vim.lsp.enable("html")
 
 -- --------------------------------------------------------
---                      Dockerfile
+--  Dockerfile
 -- --------------------------------------------------------
 vim.lsp.config("dockerls", {
-  on_attach = on_attach,
-  capabilities = capabilities
+  on_attach    = on_attach,
+  capabilities = capabilities,
 })
 vim.lsp.enable("dockerls")
 
 -- --------------------------------------------------------
---                      JSON
+--  JSON
 -- --------------------------------------------------------
 vim.lsp.config("jsonls", {
-  on_attach = on_attach,
-  capabilities = capabilities
+  on_attach    = on_attach,
+  capabilities = capabilities,
 })
 vim.lsp.enable("jsonls")
 
 -- --------------------------------------------------------
---                      Bash
+--  Bash
 -- --------------------------------------------------------
 vim.lsp.config("bashls", {
-  on_attach = on_attach,
-  capabilities = capabilities
+  on_attach    = on_attach,
+  capabilities = capabilities,
 })
 vim.lsp.enable("bashls")
+
+-- --------------------------------------------------------
+--  Azure Pipelines
+-- --------------------------------------------------------
+
+vim.lsp.config("azure_pipelines_ls", {
+  on_attach    = on_attach,
+  capabilities = capabilities,
+  filetypes    = { "yaml", "yml" },
+  root_markers = { ".git" },
+  settings     = {
+    yaml = {
+      schemas = {
+        ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] =
+        {
+          "azure-pipelines/**/*.y*l",
+          "Azure-Pipelines/**/*.y*l",
+          "Pipelines/*.y*l",
+          "/*.azure*",
+          "/azure-pipeline*.y*l",
+        },
+      },
+    },
+  },
+})
+vim.lsp.enable("azure_pipelines_ls")

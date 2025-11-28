@@ -15,6 +15,7 @@ require("mason").setup({
 require("mason-lspconfig").setup({
   ensure_installed = {
     "ansiblels",
+    "azure_pipelines_ls",
     "bashls",
     "dockerls",
     "html",
