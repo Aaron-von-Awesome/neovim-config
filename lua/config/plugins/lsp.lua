@@ -84,11 +84,11 @@ vim.lsp.enable("lua_ls")
 -- --------------------------------------------------------
 --                      Python
 -- --------------------------------------------------------
-vim.lsp.config("pyright", {
+vim.lsp.config("pylsp", {
   on_attach = on_attach,
   capabilities = capabilities
 })
-vim.lsp.enable("pyright")
+vim.lsp.enable("pylsp")
 
 -- --------------------------------------------------------
 --                      JavaScript

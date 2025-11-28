@@ -20,7 +20,7 @@ require("mason-lspconfig").setup({
     "html",
     "jsonls",
     "lua_ls",
-    "pyright",
+    "pylsp",
     "ts_ls",
     "yamlls"
   },
