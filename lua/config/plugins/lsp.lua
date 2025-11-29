@@ -57,6 +57,7 @@ vim.lsp.config("ansiblels", {
   on_attach           = on_attach,
   capabilities        = capabilities,
   filetypes           = { "yaml", "yml", "ansible", "yaml.ansible" },
+  root_markers        = { "ansible.cfg", ".ansible-lint" },
   single_file_support = false,
   settings            = {
     ansiblels = {
