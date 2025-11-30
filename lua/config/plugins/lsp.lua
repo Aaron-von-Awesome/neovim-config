@@ -43,23 +43,19 @@ vim.keymap.set("n", "q", vim.diagnostic.setloclist, diag_opts)
 --   vim.lsp.enable("<server_name>")
 --------------------------------------------------------------------
 
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
---  Capabilities – needed for nvim‑cmp integration
-local capabilities = cmp_nvim_lsp.default_capabilities(
-  vim.lsp.protocol.make_client_capabilities()
-)
-
 -- --------------------------------------------------------
 --  Ansible
 -- --------------------------------------------------------
+vim.lsp.config("ansiblels", { on_attach = on_attach })
+vim.lsp.enable("ansiblels")
+
+-- --------------------------------------------------------
+--  Generic YAML
+-- --------------------------------------------------------
 vim.lsp.config("ansiblels", {
-  on_attach           = on_attach,
-  capabilities        = capabilities,
-  filetypes           = { "yaml", "yml", "ansible", "yaml.ansible" },
-  root_markers        = { "ansible.cfg", ".ansible-lint" },
-  single_file_support = false,
-  settings            = {
+  on_attach = on_attach,
+  filetypes = { "yaml", "yml", "ansible", "yaml.ansible" },
+  settings  = {
     ansiblels = {
       exclude = {
         "azure-pipelines/**/*.y*l",
@@ -71,29 +67,14 @@ vim.lsp.config("ansiblels", {
     }
   }
 })
-vim.lsp.enable("ansiblels")
-
--- --------------------------------------------------------
---  Generic YAML
--- --------------------------------------------------------
-vim.lsp.config("yamlls", {
-  on_attach    = on_attach,
-  capabilities = capabilities,
-  settings     = {
-    yaml = {
-      format = { enable = false },
-    },
-  },
-})
 vim.lsp.enable("yamlls")
 
 -- --------------------------------------------------------
 --  Lua
 -- --------------------------------------------------------
 vim.lsp.config("lua_ls", {
-  on_attach    = on_attach,
-  capabilities = capabilities,
-  settings     = {
+  on_attach = on_attach,
+  settings = {
     Lua = {
       diagnostics = {
         globals = { "vim", "use" },
@@ -106,66 +87,46 @@ vim.lsp.enable("lua_ls")
 -- --------------------------------------------------------
 --  Python
 -- --------------------------------------------------------
-vim.lsp.config("pylsp", {
-  on_attach    = on_attach,
-  capabilities = capabilities,
-})
+vim.lsp.config("pylsp", { on_attach = on_attach })
 vim.lsp.enable("pylsp")
 
 -- --------------------------------------------------------
 --  TypeScript / JavaScript
 -- --------------------------------------------------------
-vim.lsp.config("ts_ls", {
-  on_attach    = on_attach,
-  capabilities = capabilities,
-})
+vim.lsp.config("ts_ls", { on_attach = on_attach })
 vim.lsp.enable("ts_ls")
 
 -- --------------------------------------------------------
 --  HTML
 -- --------------------------------------------------------
-vim.lsp.config("html", {
-  on_attach    = on_attach,
-  capabilities = capabilities,
-})
+vim.lsp.config("html", { on_attach = on_attach })
 vim.lsp.enable("html")
 
 -- --------------------------------------------------------
 --  Dockerfile
 -- --------------------------------------------------------
-vim.lsp.config("dockerls", {
-  on_attach    = on_attach,
-  capabilities = capabilities,
-})
+vim.lsp.config("dockerls", { on_attach = on_attach })
 vim.lsp.enable("dockerls")
 
 -- --------------------------------------------------------
 --  JSON
 -- --------------------------------------------------------
-vim.lsp.config("jsonls", {
-  on_attach    = on_attach,
-  capabilities = capabilities,
-})
+vim.lsp.config("jsonls", { on_attach = on_attach })
 vim.lsp.enable("jsonls")
 
 -- --------------------------------------------------------
 --  Bash
 -- --------------------------------------------------------
-vim.lsp.config("bashls", {
-  on_attach    = on_attach,
-  capabilities = capabilities,
-})
+vim.lsp.config("bashls", { on_attach = on_attach })
 vim.lsp.enable("bashls")
 
 -- --------------------------------------------------------
 --  Azure Pipelines
 -- --------------------------------------------------------
-
 vim.lsp.config("azure_pipelines_ls", {
-  on_attach    = on_attach,
-  capabilities = capabilities,
   filetypes    = { "yaml", "yml" },
-  root_markers = { ".git" },
+  root_markers = { ".git", "azure-pipeline*.y*l" },
+  on_attach    = on_attach,
   settings     = {
     yaml = {
       schemas = {
