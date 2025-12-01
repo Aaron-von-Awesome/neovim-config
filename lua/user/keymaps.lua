@@ -27,8 +27,8 @@ vim.keymap.set("n", "<Leader>l", ":wincmd l<CR>", opts)
 vim.keymap.set("n", "<Leader><tab>", "<c-^>", opts)
 
 -- Move lines of blocks of lines at once
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
+vim.keymap.set("v", "J", ":move '>+1<CR>gv=gv", opts)
+vim.keymap.set("v", "K", ":move '<-2<CR>gv=gv", opts)
 
 -- Shortcut for :noh
 vim.keymap.set("n", "<Leader>nh", ":noh<CR>", opts)
