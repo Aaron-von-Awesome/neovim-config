@@ -153,6 +153,7 @@ vim.lsp.enable("bashls")
 --  Azure Pipelines
 -- --------------------------------------------------------
 vim.lsp.config("azure_pipelines_ls", {
+  root_dir     = vim.fn.getcwd(),
   filetypes    = { "yaml", "yml" },
   root_markers = { ".git", "azure-pipeline*.y*l" },
   on_attach    = on_attach,
@@ -169,7 +170,6 @@ vim.lsp.config("azure_pipelines_ls", {
         },
       },
     },
-  },
-  root_dir     = vim.fn.getcwd(),
+  }
 })
 vim.lsp.enable("azure_pipelines_ls")
