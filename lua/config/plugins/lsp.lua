@@ -46,12 +46,6 @@ vim.keymap.set("n", "q", vim.diagnostic.setloclist, diag_opts)
 -- --------------------------------------------------------
 --  Ansible
 -- --------------------------------------------------------
-vim.lsp.config("ansiblels", { on_attach = on_attach })
-vim.lsp.enable("ansiblels")
-
--- --------------------------------------------------------
---  Generic YAML
--- --------------------------------------------------------
 vim.lsp.config("ansiblels", {
   on_attach = on_attach,
   filetypes = { "yaml", "yml", "ansible", "yaml.ansible" },
@@ -66,6 +60,19 @@ vim.lsp.config("ansiblels", {
       }
     }
   }
+})
+vim.lsp.enable("ansiblels")
+
+-- --------------------------------------------------------
+--  Generic YAML
+-- --------------------------------------------------------
+vim.lsp.config("yamlls", {
+  on_attach = on_attach,
+  settings  = {
+    yaml = {
+      format = { enable = false },
+    },
+  },
 })
 vim.lsp.enable("yamlls")
 
