@@ -2,29 +2,6 @@
 --                                LSP Servers Configuration
 -- ==========================================================================================
 
--- -----------------------------------------------------------------
---  Helper: on_attach (runs after a server attaches to a buffer)
--- -----------------------------------------------------------------
-local on_attach = function(client, bufnr)
-  -- Enable LSP‑based completion
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-  local bufopts = { noremap = true, silent = true, buffer = bufnr }
-
-  -- Navigation & actions -------------------------------------------------
-  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-  vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set("n", "rn", vim.lsp.buf.rename, bufopts)
-  vim.keymap.set("n", "ca", vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set("n", ";", function()
-    vim.lsp.buf.format({ async = true })
-  end, bufopts)
-end
-
 --------------------------------------------------------------------
 --  Global diagnostic key‑maps
 --------------------------------------------------------------------
@@ -36,20 +13,49 @@ vim.keymap.set("n", "dj", vim.diagnostic.goto_next, diag_opts)
 vim.keymap.set("n", "q", vim.diagnostic.setloclist, diag_opts)
 
 --------------------------------------------------------------------
---  Server configurations – using vim.lsp.config()
+--  Server configurations – using register()
 --------------------------------------------------------------------
 -- NOTE: All calls follow the pattern
---   vim.lsp.config("<server_name>", { <options> })
+--   register("<server_name>", { <options> })
 --   vim.lsp.enable("<server_name>")
 --------------------------------------------------------------------
+
+--  Helper to register an LSP Server
+local function register(name, cfg)
+  vim.lsp.config(name, vim.tbl_extend("force", {
+    on_attach    = {
+      function(client, bufnr)
+        -- Enable LSP‑based completion
+        vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+
+        local bufopts = { noremap = true, silent = true, buffer = bufnr }
+
+        -- Navigation & actions -------------------------------------------------
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+        vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, bufopts)
+        vim.keymap.set("n", "rn", vim.lsp.buf.rename, bufopts)
+        vim.keymap.set("n", "ca", vim.lsp.buf.code_action, bufopts)
+        vim.keymap.set("n", ";", function()
+          vim.lsp.buf.format({ async = true })
+        end, bufopts)
+      end
+    },
+    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+    root_dir     = vim.fn.getcwd(),
+  }, cfg or {}))
+
+  vim.lsp.enable(name)
+end
 
 
 -- --------------------------------------------------------
 --  Ansible
 -- --------------------------------------------------------
-vim.lsp.config("ansiblels", {
-  root_dir  = vim.fn.getcwd(),
-  on_attach = on_attach,
+register("ansiblels", {
   filetypes = { "yaml", "yml", "ansible", "yaml.ansible" },
   settings  = {
     ansiblels = {
@@ -63,29 +69,23 @@ vim.lsp.config("ansiblels", {
     }
   }
 })
-vim.lsp.enable("ansiblels")
 
 -- --------------------------------------------------------
 --  Generic YAML
 -- --------------------------------------------------------
-vim.lsp.config("yamlls", {
-  root_dir  = vim.fn.getcwd(),
-  on_attach = on_attach,
-  settings  = {
+register("yamlls", {
+  settings = {
     yaml = {
       format = { enable = false },
     },
   },
 })
-vim.lsp.enable("yamlls")
 
 -- --------------------------------------------------------
 --  Lua
 -- --------------------------------------------------------
-vim.lsp.config("lua_ls", {
-  root_dir  = vim.fn.getcwd(),
-  on_attach = on_attach,
-  settings  = {
+register("lua_ls", {
+  settings = {
     Lua = {
       diagnostics = {
         globals = { "vim", "use" },
@@ -93,70 +93,43 @@ vim.lsp.config("lua_ls", {
     },
   },
 })
-vim.lsp.enable("lua_ls")
 
 -- --------------------------------------------------------
 --  Python
 -- --------------------------------------------------------
-vim.lsp.config("pylsp", {
-  root_dir  = vim.fn.getcwd(),
-  on_attach = on_attach
-})
-vim.lsp.enable("pylsp")
+register("pylsp", {})
 
 -- --------------------------------------------------------
 --  TypeScript / JavaScript
 -- --------------------------------------------------------
-vim.lsp.config("ts_ls", {
-  root_dir  = vim.fn.getcwd(),
-  on_attach = on_attach
-})
-vim.lsp.enable("ts_ls")
+register("ts_ls", {})
 
 -- --------------------------------------------------------
 --  HTML
 -- --------------------------------------------------------
-vim.lsp.config("html", {
-  root_dir  = vim.fn.getcwd(),
-  on_attach = on_attach
-})
-vim.lsp.enable("html")
+register("html", {})
 
 -- --------------------------------------------------------
 --  Dockerfile
 -- --------------------------------------------------------
-vim.lsp.config("dockerls", {
-  root_dir  = vim.fn.getcwd(),
-  on_attach = on_attach
-})
-vim.lsp.enable("dockerls")
+register("dockerls", {})
 
 -- --------------------------------------------------------
 --  JSON
 -- --------------------------------------------------------
-vim.lsp.config("jsonls", {
-  root_dir  = vim.fn.getcwd(),
-  on_attach = on_attach
-})
-vim.lsp.enable("jsonls")
+register("jsonls", {})
 
 -- --------------------------------------------------------
 --  Bash
 -- --------------------------------------------------------
-vim.lsp.config("bashls", {
-  root_dir  = vim.fn.getcwd(),
-  on_attach = on_attach
-})
-vim.lsp.enable("bashls")
+register("bashls", {})
 
 -- --------------------------------------------------------
 --  Azure Pipelines
 -- --------------------------------------------------------
-vim.lsp.config("azure_pipelines_ls", {
-  root_dir     = vim.fn.getcwd(),
+register("azure_pipelines_ls", {
   filetypes    = { "yaml", "yml" },
   root_markers = { ".git", "azure-pipeline*.y*l" },
-  on_attach    = on_attach,
   settings     = {
     yaml = {
       schemas = {
@@ -172,4 +145,3 @@ vim.lsp.config("azure_pipelines_ls", {
     },
   },
 })
-vim.lsp.enable("azure_pipelines_ls")

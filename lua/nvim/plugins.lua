@@ -52,6 +52,7 @@ vim.pack.add(
   {
     "https://github.com/hrsh7th/cmp-buffer.git",
     "https://github.com/hrsh7th/cmp-cmdline.git",
+    "https://github.com/hrsh7th/cmp-nvim-lsp.git",
     "https://github.com/hrsh7th/cmp-nvim-lua.git",
     "https://github.com/hrsh7th/cmp-path.git",
     "https://github.com/hrsh7th/nvim-cmp.git",
