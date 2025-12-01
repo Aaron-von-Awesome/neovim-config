@@ -43,12 +43,10 @@ vim.keymap.set("n", "q", vim.diagnostic.setloclist, diag_opts)
 --   vim.lsp.enable("<server_name>")
 --------------------------------------------------------------------
 
-
 -- --------------------------------------------------------
 --  Ansible
 -- --------------------------------------------------------
 vim.lsp.config("ansiblels", {
-  root_dir  = vim.fn.getcwd(),
   on_attach = on_attach,
   filetypes = { "yaml", "yml", "ansible", "yaml.ansible" },
   settings  = {
@@ -69,7 +67,6 @@ vim.lsp.enable("ansiblels")
 --  Generic YAML
 -- --------------------------------------------------------
 vim.lsp.config("yamlls", {
-  root_dir  = vim.fn.getcwd(),
   on_attach = on_attach,
   settings  = {
     yaml = {
@@ -83,9 +80,8 @@ vim.lsp.enable("yamlls")
 --  Lua
 -- --------------------------------------------------------
 vim.lsp.config("lua_ls", {
-  root_dir  = vim.fn.getcwd(),
   on_attach = on_attach,
-  settings  = {
+  settings = {
     Lua = {
       diagnostics = {
         globals = { "vim", "use" },
@@ -98,55 +94,37 @@ vim.lsp.enable("lua_ls")
 -- --------------------------------------------------------
 --  Python
 -- --------------------------------------------------------
-vim.lsp.config("pylsp", {
-  root_dir  = vim.fn.getcwd(),
-  on_attach = on_attach
-})
+vim.lsp.config("pylsp", { on_attach = on_attach })
 vim.lsp.enable("pylsp")
 
 -- --------------------------------------------------------
 --  TypeScript / JavaScript
 -- --------------------------------------------------------
-vim.lsp.config("ts_ls", {
-  root_dir  = vim.fn.getcwd(),
-  on_attach = on_attach
-})
+vim.lsp.config("ts_ls", { on_attach = on_attach })
 vim.lsp.enable("ts_ls")
 
 -- --------------------------------------------------------
 --  HTML
 -- --------------------------------------------------------
-vim.lsp.config("html", {
-  root_dir  = vim.fn.getcwd(),
-  on_attach = on_attach
-})
+vim.lsp.config("html", { on_attach = on_attach })
 vim.lsp.enable("html")
 
 -- --------------------------------------------------------
 --  Dockerfile
 -- --------------------------------------------------------
-vim.lsp.config("dockerls", {
-  root_dir  = vim.fn.getcwd(),
-  on_attach = on_attach
-})
+vim.lsp.config("dockerls", { on_attach = on_attach })
 vim.lsp.enable("dockerls")
 
 -- --------------------------------------------------------
 --  JSON
 -- --------------------------------------------------------
-vim.lsp.config("jsonls", {
-  root_dir  = vim.fn.getcwd(),
-  on_attach = on_attach
-})
+vim.lsp.config("jsonls", { on_attach = on_attach })
 vim.lsp.enable("jsonls")
 
 -- --------------------------------------------------------
 --  Bash
 -- --------------------------------------------------------
-vim.lsp.config("bashls", {
-  root_dir  = vim.fn.getcwd(),
-  on_attach = on_attach
-})
+vim.lsp.config("bashls", { on_attach = on_attach })
 vim.lsp.enable("bashls")
 
 -- --------------------------------------------------------
@@ -170,6 +148,5 @@ vim.lsp.config("azure_pipelines_ls", {
       },
     },
   },
-  root_dir     = vim.fn.getcwd(),
 })
 vim.lsp.enable("azure_pipelines_ls")
