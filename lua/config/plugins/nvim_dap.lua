@@ -65,7 +65,7 @@ vim.keymap.set("n", "<F6>", function() require("dap").step_into() end, opts)    
 vim.keymap.set("n", "<F7>", function() require("dap").step_over() end, opts)                           -- Step Over
 vim.keymap.set("n", "<F8>", function() require("dap").step_out() end)
 vim.keymap.set("n", "<Leader>b", function() require("dap").toggle_breakpoint() end, opts)              -- Toggle Breakpoint
-vim.keymap.set("n", "<Leader>lp",
+vim.keymap.set("n", "<Leader>db",
     function() require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: ")) end, opts) -- Log Breakpoint Message
 vim.keymap.set("n", "<Leader>dr", function() require("dap").repl.open() end, opts)                     -- Open Repl
 vim.keymap.set("n", "<Leader>dl", function() require("dap").run_last() end, opts)                      -- Run Last
