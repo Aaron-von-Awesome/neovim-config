@@ -39,9 +39,7 @@ local function register(name, cfg)
         vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, bufopts)
         vim.keymap.set("n", "rn", vim.lsp.buf.rename, bufopts)
         vim.keymap.set("n", "ca", vim.lsp.buf.code_action, bufopts)
-        vim.keymap.set("n", ";", function()
-          vim.lsp.buf.format({ async = true })
-        end, bufopts)
+        vim.keymap.set("n", ";", function() vim.lsp.buf.format({ async = true }) end, bufopts)
       end
     },
     capabilities = require("cmp_nvim_lsp").default_capabilities(),
