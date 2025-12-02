@@ -6,7 +6,7 @@
 -- Core plugins
 -------------------------------------------------
 vim.pack.add({ "https://github.com/nvim-tree/nvim-tree.lua.git" }) -- File Explorer
-vim.pack.add({ "https://github.com/nvim-lua/plenary.nvim.git" })   -- Helper Plugins
+vim.pack.add({ "https://github.com/nvim-lua/plenary.nvim.git" })   -- Dependency for nvim-telescope
 vim.pack.add({ "https://github.com/mason-org/mason.nvim.git" })    -- Package Manager for LSP, DAP, linters, and formatters
 vim.pack.add(
   {
