@@ -16,11 +16,8 @@ cmp.setup({
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body) -- Used for LuaSnip
+      vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
     end,
-  },
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
   },
   view = {
     entries = { name = "custom", selection_order = "near_cursor" }
@@ -72,18 +69,6 @@ cmp.setup({
     }),
   }
 })
-
--- Set configuration for specific filetype.
---cmp.setup.filetype("gitcommit", {
---  sources = cmp.config.sources(
---  {
---    { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were to install it.
---  },
---    {
---      { name = "buffer" }
---    }
---  )
---})
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline("/", {
