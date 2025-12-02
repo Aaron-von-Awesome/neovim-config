@@ -71,6 +71,8 @@ vim.opt.scrolloff = 10
 -- Window Options
 --Put horizontally split new windows below
 vim.opt.splitbelow = true
+--Add border to the hover windows
+vim.opt.winborder = "rounded"
 
 -- Folding
 --vim.opt.foldmethod = "expr"
