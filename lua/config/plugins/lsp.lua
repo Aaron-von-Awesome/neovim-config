@@ -31,14 +31,11 @@ local function register(name, cfg)
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
         -- Navigation & actions -------------------------------------------------
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+        -- see ":h lsp-defaluts" for additional default keymaps
+        vim.keymap.set("n", "grD", vim.lsp.buf.declaration, bufopts)
+        vim.keymap.set("n", "grd", vim.lsp.buf.definition, bufopts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-        vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, bufopts)
-        vim.keymap.set("n", "rn", vim.lsp.buf.rename, bufopts)
-        vim.keymap.set("n", "ca", vim.lsp.buf.code_action, bufopts)
+        vim.keymap.set("n", "grs", vim.lsp.buf.signature_help, bufopts)
         vim.keymap.set("n", ";", function() vim.lsp.buf.format({ async = true }) end, bufopts)
       end
     },

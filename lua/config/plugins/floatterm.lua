@@ -6,16 +6,18 @@
 -------------------------------------------------
 -- Floater Window Settings
 -------------------------------------------------
-vim.g.floaterm_height        = 0.9
-vim.g.floaterm_width         = 0.9
+vim.g.floaterm_height = 0.9
+vim.g.floaterm_width  = 0.9
 
 -------------------------------------------------
 -- Keymaps
 -------------------------------------------------
-vim.g.floaterm_keymap_new    = "<Leader>ts"
-vim.g.floaterm_keymap_prev   = "<Leader>tp"
-vim.g.floaterm_keymap_next   = "<Leader>tn"
-vim.g.floaterm_keymap_toggle = "<Leader>tt"
+local opts            = { noremap = true }
+
+vim.keymap.set("n", "<Leader>ts", ":FloatermNew<CR>", opts)
+vim.keymap.set("n", "<Leader>tp", ":FloatermPrev<CR>", opts)
+vim.keymap.set("n", "<Leader>tn", ":FloatermNext<CR>", opts)
+vim.keymap.set("n", "<Leader>tt", ":FloatermToggle<CR>", opts)
 
 
 -- Added for Floating Terminal window that will run a Python script
