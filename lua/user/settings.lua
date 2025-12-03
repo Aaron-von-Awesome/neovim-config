@@ -73,7 +73,3 @@ vim.opt.scrolloff = 10
 vim.opt.splitbelow = true
 --Add border to the hover windows
 vim.opt.winborder = "rounded"
-
--- Folding
---vim.opt.foldmethod = "expr"
---vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
