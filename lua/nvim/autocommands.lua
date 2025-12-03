@@ -3,16 +3,18 @@
 -- ==========================================================================================
 -- TODO: still have no idea what these are, just coping and pasting :-(
 
-local augroup = vim.api.nvim_create_augroup
-VonAwesomeGroup = augroup("VonAwesome", {})
-
 local autocmd = vim.api.nvim_create_autocmd
 
 -- Trim white space & Format with LSP on save
 autocmd({ "BufWritePre" }, {
-  group = VonAwesomeGroup,
   pattern = "*",
-  command = "%s/\\s\\+$//e | lua vim.lsp.buf.format({ async = true })",
+  callback = function()
+    -- Trim trailing spaces **but keep pure‑blank lines**
+    vim.cmd([[%s/\s\+$//e]])
+
+    -- Run the LSP formatter asynchronously
+    vim.lsp.buf.format { async = true }
+  end,
 })
 
 autocmd({ "BufWritePost" }, {
